@@ -1,239 +1,101 @@
 ---
-title: API Reference
+title: AppMonsta API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - ruby
   - python
-  - javascript
+  - java
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='/support'>Contact Support</a>
+  - <a href='/dashboard/get_api_key/'>Get My API Key</a>
 
 includes:
-  - errors
+  - rankings
+  - app-ids-for-all-apps
+  - details-for-a-single-app
+  - details-for-all-apps
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+AppEverything API gives you access to:
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+* [Rankings](#rankings): Apps that show up on ranking lists (ie. Overall, Top Grossing, etc).
+* [Details](#details-for-a-single-app):  Basic data about each app (data on the app description page).
+* [Reviews](#app-reviews): User reviews associated with each app.
+* And more.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+  You need to get an API key before you can use our API. It's free and you can grab it
+  <a href="/dashboard/get_api_key/"> here </a>.<br>
+  Complete access to this API is available via monthly subscription.
+  <a href="/contact-sales"> Contact us </a> for pricing and details or try out limited access
+  for free.
 </aside>
 
-# Kittens
+## Quick Overview
 
-## Get All Kittens
+A few quick details about our REST API:
 
-```ruby
-require 'kittn'
+ Type                | Description
+-------------------- | --------------
+**SSL** only             | We require that all requests are done over SSL.
+**UTF-8** encoding       | We use UTF-8 everywhere.
+**Method**               | `GET` for all read calls, `PUT` to submit a new app.
+**Version** number       | The current version of our API is v1.
+**Multi-records** format | JSON dictionaries separated by newlines also known as JSON Lines (JSONL).
+**Date** format          | All dates in the API are strings in the following format: `YYYY-MM-DD`.
+**Error** handling       | Errors are returned using [listed HTTP error codes](#errors).
+**Bulk** API requests    | Bulk API requests return request ID to validate request:
+                         | Request ID is sent via `X-Request-ID` HTTP Header. You may get the status of request using Request Status API.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+## Compression
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+Our REST API allows the use of compression on the request and the response, using the standards
+defined by the HTTP 1.1 specification. Some clients will automatically use compression but for
+some it has to be turned on manually.
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+# With shell, you can just pass the --compress parameter with each request
+curl --compress ...
 ```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Turning on compression can result in speed and size savings of up to 4X.
 </aside>
 
-## Get a Specific Kitten
+To use compression make sure your requests to our API include the following header
+`Accept-Encoding: gzip`. Our API will compress the response if this header is specified. For more
+information on how to add this header refer to code examples below.
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
 
-```python
-import kittn
+## Authentication
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+Requests to the REST API are protected with HTTP Basic authentication. You must provide your API
+key to each request made against our API. If you've an account then you can find your API key in
+account settings or displayed at the top of this page (you need to be logged in). Otherwise you can
+always get one here (if you lost your key you can just enter your email again and we will retrieve
+it for you).
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+<aside class="warning">
+Requests have to use HTTPS. Using HTTP will return 400 error response.
+</aside>
 
-```javascript
-const kittn = require('kittn');
+## Errors
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
+The API uses the following error codes:
 
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+Error Code | Meaning
+---------- | -------
+**400** | Bad input parameter or malformed request. The error message should indicate what is specifically wrong.
+**401** | Missing or bad API key (email datageeks@appmonsta.com if you need a new API key).
+**403** | You're requesting something your subscription doesn't cover (email datageeks@appmonsta.com if you'd like to change your subscription).
+**404** | The data isn't available yet. This may be because we're still collecting it.
+**429** | You've exceeded the rate limit for the API you're trying to access. Wait a little or contact datageeks@appmonsta.com.
+**500** | Something went wrong on our end. Email us at datageeks@appmonsta.com with the details of your API request, and we'll troubleshoot it ASAP.
 
