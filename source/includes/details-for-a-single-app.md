@@ -186,29 +186,29 @@ Field                    | Description
 **all_histogram**        | The histogram breakdown of ratings for all versions of this app. A dictionary with the keys 1-5 (as strings) mapped onto number of reviews with that number of stars.
 **all_rating**           | The average rating for all versions of this app.
 **all_rating_count**     | The number of ratings for all versions of this app.
-**all_reviews**          | The number of reviews for all versions of this app, if available as a summarized number.
+**all_reviews**          | The number of reviews for all versions of this app, if available as a summarized number. ![itunes_only](../images/itunes_logo.jpg)
 **app_name**             | The name of the app.
-**app_type**             | Whether the app is categorized as `GAME` or `APPLICATION`.
+**app_type**             | Whether the app is categorized as `GAME` or `APPLICATION`. ![android_only](../images/android_logo.jpg)
 **bundle_id**            | The internal bundle identifier of the app binary.
 **content_rating**       | The age-appropriate content rating of the app.
-**content_rating_info**  | Additional info on content rating of the app if present.
-**current_histogram**    | The histogram breakdown of ratings for the current version of this app. Should be a dictionary with the keys 1-5 (as strings) mapped onto number of reviews with that number of stars.
-**current_rating**       | The average rating for the current version of this app.
-**current_rating_count** | The number of ratings for the current version of this app.
-**current_reviews**      | The number of reviews for the current version of this app, if available as a summarized number.
+**content_rating_info**  | Additional info on content rating of the app if present. ![android_only](../images/android_logo.jpg)
+**current_histogram**    | The histogram breakdown of ratings for the current version of this app. Should be a dictionary with the keys 1-5 (as strings) mapped onto number of reviews with that number of stars. ![itunes_only](../images/itunes_logo.jpg)
+**current_rating**       | The average rating for the current version of this app. ![itunes_only](../images/itunes_logo.jpg)
+**current_rating_count** | The number of ratings for the current version of this app. ![itunes_only](../images/itunes_logo.jpg)
+**current_reviews**      | The number of reviews for the current version of this app, if available as a summarized number. ![itunes_only](../images/itunes_logo.jpg)
 **description**          | The text of the description of the app.
-**downloads**            | The number of downloads this app has, if available.
+**downloads**            | The number of downloads this app has, if available. ![android_only](../images/android_logo.jpg)
 **file_size**            | The file size of the downloadable app as a human readable string, if present.
 **file_size_bytes**      | The size of the app binary in bytes, if present.
 **genre**                | The primary category of an app, as it appears on the store side.
 **genre_id**             | The id of the primary category of an app, as returned by the store.
 **genres**               | All categories of an app, as they are returned from the store side.
 **genre_ids**            | List of category ids of an app, as returned by the store.
-**has_game_center**      | A boolean (0 or 1) indicating whether this app supports Game Center.
-**iap_price_range**      | Price range of all in-app products available for the app.
+**has_game_center**      | A boolean (0 or 1) indicating whether this app supports Game Center. ![itunes_only](../images/itunes_logo.jpg)
+**iap_price_range**      | Price range of all in-app products available for the app. ![android_only](../images/android_logo.jpg)
 **icon_url**             | The url of the app icon.
 **id**                   | The unique identifier for the app as assigned by the store.
-**in_app_purchases**     | In the iTunes store a list containing all available in-app products.
+**in_app_purchases**     | In the iTunes store a list containing all available in-app products. ![itunes_only](../images/itunes_logo.jpg)
 
 ```json--inline
 "in_app_purchases": [
@@ -226,10 +226,10 @@ Field                    | Description
 ```
  &nbsp;                  | &nbsp;
 ------------------------ | ------
-**interactive_elements** | A string containing interactive elements as listed on the app page.
-**is_universal**         | Whether the app is universal, meaning it's optimized for both iPhone and iPad.
-**languages**            | Languages that the app supports, as they're defined on the store side.
-**permissions**          | List of permissions required by this app.
+**interactive_elements** | A string containing interactive elements as listed on the app page. ![android_only](../images/android_logo.jpg)
+**is_universal**         | Whether the app is universal, meaning it's optimized for both iPhone and iPad. ![itunes_only](../images/itunes_logo.jpg)
+**languages**            | Languages that the app supports, as they're defined on the store side. ![itunes_only](../images/itunes_logo.jpg)
+**permissions**          | List of permissions required by this app. ![android_only](../images/android_logo.jpg)
 
 ```json--inline
 "permissions": [
@@ -247,23 +247,23 @@ Field                    | Description
  &nbsp;                   | &nbsp;
 ------------------------  | ------
 **price**                 | The price of the app.
-**publisher_address**     | Physical address of the publisher if listed in the app store.
-**publisher_email**       | The email address of the publisher of this app, if present.
+**publisher_address**     | Physical address of the publisher if listed in the app store. ![android_only](../images/android_logo.jpg)
+**publisher_email**       | The email address of the publisher of this app, if present. ![android_only](../images/android_logo.jpg)
 **publisher_id**          | The id of the publisher of this app as assigned by the store.
 **publisher_name**        | The display name of the publisher of this app.
-**publisher_url**         | The website of the publisher of this app.
+**publisher_url**         | The website of the publisher of this app. ![android_only](../images/android_logo.jpg)
 **related**               | A dictionary of related apps as presented by the source system. The keys are an identifier for the section of related apps, such as `also_installed`. The values are lists of app ids.
 **release_date**          | String containing app release date in ISO format.
-**requires_hardware**     | A string indicating which hardware is required to run this app.
+**requires_hardware**     | A string indicating which hardware is required to run this app. ![itunes_only](../images/itunes_logo.jpg)
 **requires_os**           | A string indicating the minimum OS/platform version this app requires, if present.
 **screenshot_urls**       | An array of screenshot urls.
-**seller**                | App seller name as it appears on Apple’s App Store.
+**seller**                | App seller name as it appears on Apple’s App Store. ![itunes_only](../images/itunes_logo.jpg)
 **status**                | Indicates what `status_date` is in relationship to. If it is either "updated" or "released", the app is available for download. If it is "dead", the app is no longer present in the store.
 **status_date**           | The date the app was updated or released, as a string in whatever format it's displayed on the store.
 **status_unix_timestamp** | The parsed unix timestamp of the `status_date` field.
 **store_url**             | App store URL.
-**support_url**           | A support url for this app, if it differs from `publisher_url`.
-**top_developer**         | A boolean whether this apps developer is marked as a top developer.
+**support_url**           | A support url for this app, if it differs from `publisher_url`. ![itunes_only](../images/itunes_logo.jpg)
+**top_developer**         | A boolean whether this apps developer is marked as a top developer. ![android_only](../images/android_logo.jpg)
 **version**               | The current version of the app.
 **video_urls**            | An array of urls of demo videos for this app, if present.
 **whats_new**             | The text of the "What's new in this version" writeup, if present.

@@ -123,7 +123,8 @@ Field                    | Description
 **review_id**            | The app version this review is for, if present.
 **review_text**          | The app id of the app this review is for.
 **title**                | Review date as a string in ISO format: YYYY-MM-DD.
-**user_id**              | The app id of the app this review is for.
+**user_id**              | The app id of the app this review is for. ![android_only](../images/android_logo.jpg)
+
 **user_name**            | The app version this review is for, if present.
 
 ### Response Headers
