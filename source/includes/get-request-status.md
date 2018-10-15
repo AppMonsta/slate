@@ -27,6 +27,7 @@ Field                    | Description
 ### Examples
 
 For a successfully completed request:
+
 ```json--inline
 {
   "status": "SUCCESS",
@@ -37,6 +38,7 @@ For a successfully completed request:
 ```
 
 For requests that failed because of server error:
+
 ```json--inline
 {
   "status": "ERROR"
@@ -45,6 +47,7 @@ For requests that failed because of server error:
 ```
 
 For an aborted request:
+
 ```json--inline
 {
   "status": "ABORTED"
@@ -53,6 +56,7 @@ For an aborted request:
 ```
 
 For an unknown request:
+
 ```json--inline
 {
 "message": "Unknown request id request_id."
