@@ -16,6 +16,9 @@ includes:
   - app-ids-for-all-apps
   - details-for-a-single-app
   - details-for-all-apps
+  - reviews
+  - add-new-app
+  - get-request-status
 
 search: true
 ---
