@@ -74,7 +74,7 @@ begin
 end while data != nil
 ```
 
-> The above code loads one app record and prints it out:
+> The above code returns reviews records in bulk; these will look like below:
 
 ```json
 {
