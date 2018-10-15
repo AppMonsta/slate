@@ -146,5 +146,5 @@ Header            | Description
 **X-Request-ID**  | The ID of the request to validate via Request Status API.
 
 <aside class="notice">
-Note This is a bulk API call. Bulk API calls return one record per line.
+NOTE: This is a bulk API call. Bulk API calls return one record per line.
 </aside>

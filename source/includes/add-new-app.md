@@ -31,6 +31,7 @@ Vary: Accept-Encoding
 Content-Length: 0
 Content-Type: text/html; charset=utf-8
 ```
-
-**NOTE**: The app details will be available within 10 minutes under normal circumstances. 
+<aside class="notice">
+NOTE: The app details will be available within 10 minutes under normal circumstances. 
 You can poll (no faster than every 10 seconds) the Details for a Single App method to wait for the app to be available.
+</aside>
