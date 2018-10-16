@@ -1,6 +1,6 @@
 # Get Request Status
 
-Validate a bulk API request to see if it is successfully completed or had any errors
+Validate a bulk API request to see if it is successfully completed or had any errors.
 
 
 ### HTTPS Request
@@ -13,7 +13,7 @@ Validate a bulk API request to see if it is successfully completed or had any er
 
 Parameter         | Required | Value
 ----------------- | -------- | -----------
-**request_id**    | Yes      | the id that's sent via X-Request-ID.
+**request_id**    | Yes      | The ID that's sent via X-Request-ID.
 
 ### Response Fields
 

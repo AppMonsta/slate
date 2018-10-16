@@ -104,8 +104,8 @@ Parameter         | Required | Value
 ----------------- | -------- | -----------
 **store**         | Yes      | `android` or `itunes`.
 **language**      | Yes      | Specify language with two letter language code (ie, EN, FR, IT, etc).
-**start_date**    | Yes      | Only returns reviews we have collected after this date. This can sometimes include few days older records than start_date, since it can take some time for us to scrape the reviews. It can also include even older reviews if they have changed in any way since the first time we have collected them. 
-**end_date**      | No       |  Used with "start_date" parameter to get reviews we have collected within a particular time frame. If not specified we default this parameter to current date.
+**start_date**    | Yes      | Only returns reviews we have collected after this date. This can sometimes include few days older records than `start_date`, since it can take some time for us to scrape the reviews. It can also include even older reviews if they have changed in any way since the first time we have collected them.
+**end_date**      | No       | Used with `start_date` parameter to get reviews we have collected within a particular time frame. If not specified we default this parameter to current date.
 
 ### Response Fields
 
@@ -130,5 +130,5 @@ Field                    | Description
 ### Response Headers
 Header           | Description
 ---------------- | -----------
-**X-Request-ID** | The id of the request to validate via Request Status API. 
+**X-Request-ID** | The ID of the request to validate via Request Status API.
 
