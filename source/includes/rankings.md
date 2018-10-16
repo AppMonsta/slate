@@ -118,7 +118,7 @@ Request all rankings by date and by country.
 
 Parameter         | Required | Value
 ----------------- | -------- | -----------
-**store**         | Yes      | `android` or `itunes`
+**store**         | Yes      | `android` or `itunes`.
 **country_code**  | Yes      | The two letter country code of any country you've subscribed to.
                   |          | E.g.: `US`, `DE`, `AU`, `FR`, `GB`, `HK`, etc.
 **date**          | Yes      | In the following format: `YYYY-MM-DD`.

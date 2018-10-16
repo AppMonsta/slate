@@ -81,7 +81,7 @@ biz.buildapps.ahucabs
 cm.williamsofttech.gallerylockphotoandvideohideapplock
 co.vpsoft.kiribati_newspapers
 ```
-Get a list of all the app ids AppMonsta knows about
+Get a list of all the app ids AppMonsta knows about.
 
 ### HTTPS Request
 
@@ -91,7 +91,7 @@ Get a list of all the app ids AppMonsta knows about
 
 Parameter         | Required | Value
 ----------------- | -------- | -----------
-**store**         | Yes      | `android` or `itunes`
+**store**         | Yes      | `android` or `itunes`.
 
 ### Response Fields
 

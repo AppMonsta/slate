@@ -174,7 +174,7 @@ Request the most recent app details with the app's unique ID.
 
 Parameter         | Required | Value
 ----------------- | -------- | -----------
-**store**         | Yes      | `android` or `itunes`
+**store**         | Yes      | `android` or `itunes`.
 **country_code**  | Yes      | The two letter country code of the country to fetch this app's details for, or `ALL` if you don't care which country.
 **app_id**        | Yes      | The unique app identifier (bundle ID) for the correct store.
 **show_dead**     | No       | If show_dead=1 is present, show apps that aren't currently available in the store.
