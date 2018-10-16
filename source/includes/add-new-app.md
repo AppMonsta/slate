@@ -18,7 +18,6 @@ Parameter         | Required | Value
 
 ### Response: 202 if successfully added
 
-Check right side shell for such example.
 
 ```
 $ curl -i -s -u '<your_api_key>:X' https://api.appmonsta.com/v1/stores/android/details/com.rovio.json -X PUT
