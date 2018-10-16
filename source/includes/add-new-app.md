@@ -20,7 +20,7 @@ Parameter         | Required | Value
 
 
 ```
-$ curl -i -s -u '<your_api_key>:X' https://api.appmonsta.com/v1/stores/android/details/com.rovio.json -X PUT
+$ curl -i -s -u '{API_KEY}:X' https://api.appmonsta.com/v1/stores/android/details/com.rovio.json -X PUT
 
 HTTP/1.1 202 ACCEPTED
 Date: Thu, 26 Sep 2013 22:18:38 GMT
