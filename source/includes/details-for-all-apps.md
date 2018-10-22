@@ -170,7 +170,7 @@ Request the most recent app details for all apps.
 
 Parameter         | Required | Value
 ----------------- | -------- | -----------
-store             | Yes      | `android` or `itunes`
+store             | Yes      | `android` or `itunes`.
 country_code      | Yes      | The two letter country code of the country to fetch app details for, or `ALL` to fetch details for every app, regardless of country.
 date              | Yes      | In the following format: `YYYY-MM-DD`.
 show_dead         | No       | If `show_dead=1` is present, show apps that aren't currently available in the store.
