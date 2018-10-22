@@ -113,22 +113,20 @@ Field                    | Description
 ------------------------ | -----------
 **app_id**               | The app id of the app this review is for.
 **app_version**          | The app version this review is for, if present.
-**app_id**               | The app id of the app this review is for.
 **date**                 | Review date as a string in ISO format: YYYY-MM-DD.
-**date_str**             | The app id of the app this review is for.
-**device**               | The app version this review is for, if present.
-**language**             | The app id of the app this review is for.
-**last_scraped**         | Review date as a string in ISO format: YYYY-MM-DD.
-**rating**               | The app id of the app this review is for.
-**review_id**            | The app version this review is for, if present.
-**review_text**          | The app id of the app this review is for.
-**title**                | Review date as a string in ISO format: YYYY-MM-DD.
-**user_id**              | The app id of the app this review is for. ![android_only](../images/android_logo.jpg)
-
-**user_name**            | The app version this review is for, if present.
+**date_str**             | The original review date format, a string.
+**device**               | The device the user is using, if present.
+**language**             | The language the review was written in.
+**last_scraped**         | Timestamp representing review last scrape date.
+**rating**               | The star rating the user gave with this review. 1-5.
+**review_id**            | The id assigned by the store. May be non-unique across apps.
+**review_text**          | The text of the body of the review.
+**title**                | The title/subject line of the review, as written by the user, if there is one.
+**user_id**              | The unique identifier for the user as assigned by the store ( deprecated for iTunes ). ![android_only](../images/android_logo.jpg)
+**user_name**            | The display name of the user writing the review.
 
 ### Response Headers
 Header           | Description
 ---------------- | -----------
-**X-Request-ID** | The ID of the request to validate via Request Status API.
+**X-Request-ID** | The ID of the request to validate via ![Request Status API](#get-request-status).
 
