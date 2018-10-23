@@ -81,41 +81,6 @@ while((line = in.readLine()) != null) {
 }
 ```
 
-```javascript
-// This example uses NodeJS https module.
-
-const https = require('https');
-
-// Set hostname, path and auth headers.
-const options = {
-   "hostname": "api.appmonsta.com",
-   "path": "/v1/stores/android/rankings.json?date=2018-10-01&country=US",
-   "headers": {
-     "Authorization": 'Basic ' + new Buffer('{API_KEY}' + ':' + 'X').toString('base64')
-  },
-};
-
-
-https.get(options, (resp) => {
-  // A chunk of data has been received.
-  resp.on('data', (chunk) => {
-  // Load a valid JSON line.
-  try {
-  let jsonRecord = JSON.parse(chunk);
-  console.log(jsonRecord);
-  }
-  catch (e) {
-  // Append previous chunk and retry instead of just dropping record here.
-  }
-  });
-
-// Print an error if something weird happens.
-}).on("error", (err) => {
-  console.log("Error: " + err.message);
-});
-
-```
-
 ```php
 <?php
 $url = "https://api.appmonsta.com/v1/stores/android/rankings.json?country=US&date=2018-10-12";
