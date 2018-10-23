@@ -63,11 +63,6 @@ Our REST API allows the use of compression on the request and the response, usin
 defined by the HTTP 1.1 specification. Some clients will automatically use compression but for
 some it has to be turned on manually.
 
-```shell
-# With shell, you can just pass the --compress parameter with each request
-curl --compress ...
-```
-
 <aside class="success">
 Turning on compression can result in speed and size savings of up to 4X.
 </aside>
