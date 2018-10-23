@@ -40,6 +40,10 @@ AppEverything API gives you access to:
   <a href="/contact-sales"> Contact us </a> for pricing and details or try out limited access
   for free.
 </aside>
+<aside class="warning">
+Free API key gives you limited access. For single app record calls the limit is 100 hits per day and for
+bulk calls you get the first 100 records per call.
+</aside>
 
 ## Quick Overview
 
