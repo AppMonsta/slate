@@ -150,5 +150,5 @@ Field                    | Description
 ### Response Headers
 Header           | Description
 ---------------- | -----------
-**X-Request-ID** | The ID of the request to validate via ![Request Status API](#get-request-status).
+**X-Request-ID** | The ID of the request to validate via [Request Status API](#get-request-status).
 
