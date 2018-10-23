@@ -11,6 +11,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='/support'>Contact Support</a>
   - <a href='/dashboard/get_api_key/'>Get My API Key</a>
+  - <a href='/'> &#11013; Home</a>
 
 includes:
   - rankings
