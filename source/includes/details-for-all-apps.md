@@ -190,18 +190,28 @@ Parameter         | Required | Value
 **show_dead**     | No       | If `show_dead=1` is present, show apps that aren't currently available in the store.
 **only_changed**  | No       | If `only_changed=1` is present, only show apps that have changed (in any field) since the previous date.
 
+<aside class="notice">
+Any subscription for API access to this call includes ALL, regardless of what other
+countries are included in the subscription.
+</aside>
 
+<aside class="notice">
 Requesting datasets older than one month:
+<ul>
+ <li>We archive all app details datasets which are older than 30 days.</li>
+ <li>Historical (older than 30 days) all app details datasets are available only for Monday dates.</li>
+ <li>In order to retrieve all apps details for all apps for an older date you will need to first request data for the nearest Monday date and after that fetch and apply only changed app details (by using only_changed=1 parameter) up to the date you're interested in.</li>
+</ul>
+</aside>
 
-* We archive all app details datasets which are older than 30 days.
-* Historical (older than 30 days) all app details datasets are available only for Monday dates.
-* In order to retrieve all apps details for all apps for an older date you will need to first request data for the nearest Monday date and after that fetch and apply only changed app details (by using `only_changed=1` parameter) up to the date you're interested in.
-
+<aside class="notice">
 Requesting datasets older than February 2014:
-
-* We archive all app details datasets which are older than February 2014.
-* Historical (older than February 2014) all app details datasets are available only for Monday dates.
-* We can restore and make available any app details dataset within 2012-2014 on request.
+<ul>
+ <li> We archive all app details datasets which are older than February 2014.</li>
+ <li> Historical (older than February 2014) all app details datasets are available only for Monday dates.</li>
+ <li> We can restore and make available any app details dataset within 2012-2014 on request.</li>
+</ul>
+</aside>
 
 
 ### Response Fields
@@ -214,7 +224,3 @@ Header            | Description
 ----------------- | -----------
 **X-Request-ID**  | The ID of the request to validate via [Request Status API](#get-request-status).
 
-<aside class="notice">
-Any subscription for API access to this call includes ALL, regardless of what other
-countries are included in the subscription.
-</aside>
