@@ -47,14 +47,14 @@ A few quick details about our REST API:
 
  Type                | Description
 -------------------- | --------------
-**SSL** only             | We require that all requests are done over SSL.
-**UTF-8** encoding       | We use UTF-8 everywhere.
+**SSL only**             | We require that all requests are done over SSL.
+**UTF-8 encoding**       | We use UTF-8 everywhere.
 **Method**               | `GET` for all read calls, `PUT` to submit a new app.
-**Version** number       | The current version of our API is v1.
-**Multi-records** format | JSON dictionaries separated by newlines also known as JSON Lines (JSONL).
-**Date** format          | All dates in the API are strings in the following format: `YYYY-MM-DD`.
-**Error** handling       | Errors are returned using [listed HTTP error codes](#errors).
-**Bulk** API requests    | Bulk API requests return request ID to validate request:
+**Version number**       | The current version of our API is v1.
+**Multi-records format** | JSON dictionaries separated by newlines also known as JSON Lines (JSONL).
+**Date format**          | All dates in the API are strings in the following format: `YYYY-MM-DD`.
+**Error handling**       | Errors are returned using [listed HTTP error codes](#errors).
+**Bulk API requests**    | Bulk API requests return request ID to validate request:
                          | Request ID is sent via `X-Request-ID` HTTP Header. You may get the status of request using Request Status API.
 
 ## Compression
