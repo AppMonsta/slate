@@ -114,7 +114,7 @@ curl_close($ch);
 ```
 
 Request most recent app reviews dump.
-This is a bulk API call, returning one record per line. 
+This is a bulk API call, returning one record per line.
 
 ### HTTPS Request
 
@@ -125,7 +125,7 @@ This is a bulk API call, returning one record per line.
 Parameter         | Required | Value
 ----------------- | -------- | -----------
 **store**         | Yes      | `android` or `itunes`.
-**language**      | Yes      | Specify language with two letter language code (ie, EN, FR, IT, etc).
+**language**      | Yes      | Specify language with two letter language code (`EN`, `FR`, `IT`, etc.).
 **start_date**    | Yes      | Only returns reviews we have collected after this date. This can sometimes include few days older records than `start_date`, since it can take some time for us to scrape the reviews. It can also include even older reviews if they have changed in any way since the first time we have collected them.
 **end_date**      | No       | Used with `start_date` parameter to get reviews we have collected within a particular time frame. If not specified we default this parameter to current date.
 
@@ -135,7 +135,7 @@ Field                    | Description
 ------------------------ | -----------
 **app_id**               | The app id of the app this review is for.
 **app_version**          | The app version this review is for, if present.
-**date**                 | Review date as a string in ISO format: YYYY-MM-DD.
+**date**                 | Review date as a string in ISO format: `YYYY-MM-DD`.
 **date_str**             | The original review date format, a string.
 **device**               | The device the user is using, if present.
 **language**             | The language the review was written in.
