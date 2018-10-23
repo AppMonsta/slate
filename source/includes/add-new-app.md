@@ -32,5 +32,5 @@ Parameter         | Required | Value
 `202` if successfully added.
 
 <aside class="notice">
-NOTE: App will be available in the next day's dataset.
+Newly added app will be available in the next day's dataset.
 </aside>

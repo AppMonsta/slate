@@ -207,6 +207,11 @@ Parameter         | Required | Value
 **app_id**        | Yes      | The unique app identifier (bundle ID) for the correct store.
 **show_dead**     | No       | If `show_dead=1` is present, show apps that aren't currently available in the store.
 
+<aside class="notice">
+Any subscription for API access to this call includes ALL, regardless of what other
+countries are included in the subscription.
+</aside>
+
 ### Response Fields
 
 Field                    | Description
@@ -296,7 +301,3 @@ Field                    | Description
 **video_urls**            | An array of urls of demo videos for this app, if present.
 **whats_new**             | The text of the "What's new in this version" writeup, if present.
 
-<aside class="notice">
-Any subscription for API access to this call includes ALL, regardless of what other
-countries are included in the subscription.
-</aside>
