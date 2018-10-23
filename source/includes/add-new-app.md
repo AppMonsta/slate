@@ -26,7 +26,7 @@ We do our best to find all apps, but occasionally we miss one (there isn't a com
 Parameter         | Required | Value
 ----------------- | -------- | -----------
 **store**         | Yes      | `android` or `itunes`.
-**app_id**        | Yes      | The ID of the app to add, e.g. com.rovio.angrybirds.
+**app_id**        | Yes      | The ID of the app to add, e.g. `com.rovio.angrybirds`.
 
 ### Response Code
 `202` if successfully added.
