@@ -4,41 +4,65 @@
 
 ```shell
 curl --compress -u '{API_KEY}:X' \
-    https://api.appmonsta.com/v1/stores/<store>/reviews.json?language=<language>
+    https://api.appmonsta.com/v1/stores/android/reviews.json?language=en
 ```
+
+```ruby
+require 'net/https'
+require 'json'
+
+uri = URI('https://api.appmonsta.com/v1/stores/android/reviews.json?language=en')
+username = "{API_KEY}"
+password = "X" # Password can be anything.
+
+Net::HTTP.start(uri.host, uri.port,
+  :use_ssl => uri.scheme == 'https') do |http|
+  request = Net::HTTP::Get.new uri
+  request.basic_auth username, password
+
+  http.request request do |response|
+      response.read_body do |chunk|
+        # Parse/load and print valid json data
+        begin
+          chunk.each_line do |line|
+          json_record = JSON.parse(line)
+          print json_record
+          end
+        rescue JSON::ParserError
+        end
+    end
+  end
+end
+```
+
 ```python
 # This example uses Python Requests library http://docs.python-requests.org/en/master/
 import requests
 import json
 
-payload = {
-  "date": "2018-10-01",
-  "country": "US",
-}
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
-response = requests.get("https://api.appmonsta.com/v1/stores/android/reviews.json",
+response = requests.get("https://api.appmonsta.com/v1/stores/android/reviews.json?language=en",
                         auth=("{API_KEY}", "X"),
-                        params=payload,
                         headers=headers,
                         stream=True)
 
 print response.status_code
 for line in response.iter_lines():
-  record = json.loads(line)
-  print record
+  # Load json object and print it out
+  json_record = json.loads(line)
+  print json_record
 ```
+
 ```java
 // This example uses java Unirest library http://unirest.io/java.html
 
-HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android/reviews.json")
+HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android/reviews.json?language=en")
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth("{API_KEY}", "X")
   .queryString("apiKey", "123")
-  .queryString("date", "2018-10-01")
-  .queryString("country", "US")
   .asString();
 
 int status = response.getStatus();
@@ -49,29 +73,62 @@ while((line = in.readLine()) != null) {
   System.out.println(line);
 }
 ```
-```ruby
-# This example uses http Ruby gem https://github.com/httprb/http
-require 'http'
 
-params = {
-  :date => "2018-10-01",
-  :country => "US",
-}
+```javascript
+// This example uses NodeJS https module.
 
-# This header turns on compression to reduce the bandwidth usage and transfer time.
-headers =  {'Accept-Encoding' => "deflate, gzip" }
-auth = HTTP.basic_auth(:user => '{API_KEY}', :pass => 'X')
-response = auth.get('https://api.appmonsta.com/v1/stores/android/reviews.json',
-                    :headers => headers,
-                    :params => params)
+const https = require('https');
 
-puts response.status
+// Set hostname, path and auth headers.
+const options = {
+   "hostname": "api.appmonsta.com",
+   "path": "/v1/stores/android/reviews.json?language=en",
+   "headers": {
+     "Authorization": 'Basic ' + new Buffer('{API_KEY}' + ':' + 'X').toString('base64')
+  },
+};
 
-body = response.body
-begin
-  data = body.readpartial
-  puts data
-end while data != nil
+
+https.get(options, (resp) => {
+  // A chunk of data has been received.
+  resp.on('data', (chunk) => {
+  // Load a valid JSON line.
+  try {
+  let jsonRecord = JSON.parse(chunk);
+  console.log(jsonRecord);
+  }
+  catch (e) {
+  // Append previous chunk and retry instead of just dropping record here.
+  }
+  });
+
+// Print an error if something weird happens.
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+
+```
+
+```php
+<?php
+$url = "https://api.appmonsta.com/v1/stores/android/reviews.json?language=en";
+$username = "{API_KEY}";
+$password = "X"; // Password can be anything
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 500);
+curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) {
+    // Parse json and print data
+    $json_record = json_decode((string)$data, true);
+    echo json_encode($json_record);
+    return strlen($data);
+});
+curl_exec($ch);
+curl_close($ch);
+?>
 ```
 
 > The above code returns reviews records in bulk; these will look like below:

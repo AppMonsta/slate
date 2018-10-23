@@ -7,6 +7,34 @@ curl --compress -u '{API_KEY}:X' \
     https://api.appmonsta.com/v1/stores/android/rankings.json?date=2018-10-01&country=US
 ```
 
+```ruby
+require 'net/https'
+require 'json'
+
+uri = URI('https://api.appmonsta.com/v1/stores/android/rankings.json?date=2018-10-01&country=US')
+username = "{API_KEY}"
+password = "X" # Password can be anything.
+
+Net::HTTP.start(uri.host, uri.port,
+  :use_ssl => uri.scheme == 'https') do |http|
+  request = Net::HTTP::Get.new uri
+  request.basic_auth username, password
+
+  http.request request do |response|
+      response.read_body do |chunk|
+        # Parse/load and print valid json data
+        begin
+          chunk.each_line do |line|
+          json_record = JSON.parse(line)
+          print json_record
+          end
+        rescue JSON::ParserError
+        end
+    end
+  end
+end
+```
+
 ```python
 # This example uses Python Requests library http://docs.python-requests.org/en/master/
 import requests
@@ -27,8 +55,9 @@ response = requests.get("https://api.appmonsta.com/v1/stores/android/rankings.js
 
 print response.status_code
 for line in response.iter_lines():
-  record = json.loads(line)
-  print record
+  # Load json object and print it out
+  json_record = json.loads(line)
+  print json_record
 ```
 
 ```java
@@ -37,7 +66,7 @@ for line in response.iter_lines():
 HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android/rankings.json")
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
-  .basicAuth("33dffb8c575ec13c7bc670c82fc5db9e2ff6b72f", "X")
+  .basicAuth("{API_KEY}", "X")
   .queryString("apiKey", "123")
   .queryString("date", "2018-10-01")
   .queryString("country", "US")
@@ -52,29 +81,61 @@ while((line = in.readLine()) != null) {
 }
 ```
 
-```ruby
-# This example uses http Ruby gem https://github.com/httprb/http
-require 'http'
+```javascript
+// This example uses NodeJS https module.
 
-params = {
-  :date => "2018-10-01",
-  :country => "US",
-}
+const https = require('https');
 
-# This header turns on compression to reduce the bandwidth usage and transfer time.
-headers =  {'Accept-Encoding' => "deflate, gzip" }
-auth = HTTP.basic_auth(:user => '{API_KEY}', :pass => 'X')
-response = auth.get('https://api.appmonsta.com/v1/stores/android/rankings.json',
-                    :headers => headers,
-                    :params => params)
+// Set hostname, path and auth headers.
+const options = {
+   "hostname": "api.appmonsta.com",
+   "path": "/v1/stores/android/rankings.json?date=2018-10-01&country=US",
+   "headers": {
+     "Authorization": 'Basic ' + new Buffer('{API_KEY}' + ':' + 'X').toString('base64')
+  },
+};
 
-puts response.status
 
-body = response.body
-begin
-  data = body.readpartial
-  puts data
-end while data != nil
+https.get(options, (resp) => {
+  // A chunk of data has been received.
+  resp.on('data', (chunk) => {
+  // Load a valid JSON line.
+  try {
+  let jsonRecord = JSON.parse(chunk);
+  console.log(jsonRecord);
+  }
+  catch (e) {
+  // Append previous chunk and retry instead of just dropping record here.
+  }
+  });
+
+// Print an error if something weird happens.
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});
+
+```
+
+```php
+<?php
+$url = "https://api.appmonsta.com/v1/stores/android/rankings.json?country=US&date=2018-10-12";
+$username = "{API_KEY}";
+$password = "X"; // Password can be anything
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 500);
+curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) {
+    // Parse json and print data
+    $json_record = json_decode((string)$data, true);
+    echo json_encode($json_record);
+    return strlen($data);
+});
+curl_exec($ch);
+curl_close($ch);
+?>
 ```
 
 > The above code loads one JSON per line and prints it out:
