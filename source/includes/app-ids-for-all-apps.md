@@ -110,7 +110,7 @@ biz.buildapps.ahucabs
 cm.williamsofttech.gallerylockphotoandvideohideapplock
 co.vpsoft.kiribati_newspapers
 ```
-Get a list of all the app ids AppMonsta knows about.
+Get a list of all the app IDs AppMonsta knows about.
 
 ### HTTPS Request
 
