@@ -100,3 +100,13 @@ Error Code | Meaning
 **429** | You've exceeded the rate limit for the API you're trying to access. Wait a little or contact datageeks[at]appmonsta.com.
 **500** | Something went wrong on our end. Email us at datageeks[at]appmonsta.com with the details of your API request, and we'll troubleshoot it ASAP.
 
+## Platform Specific Fields
+
+Some of the fields are limited to only a particular platform (either Google Play or App Store).
+In that case we tag the field description with the appropriate icon:
+
+Icon                                         | Meaning
+-------------------------------------------- | --------------------------------------
+![android_only](../images/android_logo.jpg)  | Field available only for Android apps.
+![itunes_only](../images/itunes_logo.jpg)    | Field available only for iOS apps.
+
