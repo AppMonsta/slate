@@ -234,7 +234,7 @@ Field                    | Description
 **file_size**            | The file size of the downloadable app as a human readable string, if present.
 **file_size_bytes**      | The size of the app binary in bytes, if present.
 **genre**                | The primary category of an app, as it appears on the store side.
-**genre_id**             | The id of the primary category of an app, as returned by the store.
+**genre_id**             | The ID of the primary category of an app, as returned by the store.
 **genres**               | All categories of an app, as they are returned from the store side.
 **genre_ids**            | List of category ids of an app, as returned by the store.
 **has_game_center**      | A boolean (0 or 1) indicating whether this app supports Game Center. ![itunes_only](../images/itunes_logo.jpg)
@@ -282,7 +282,7 @@ Field                    | Description
 **price**                 | The price of the app.
 **publisher_address**     | Physical address of the publisher if listed in the app store. ![android_only](../images/android_logo.jpg)
 **publisher_email**       | The email address of the publisher of this app, if present. ![android_only](../images/android_logo.jpg)
-**publisher_id**          | The id of the publisher of this app as assigned by the store.
+**publisher_id**          | The ID of the publisher of this app as assigned by the store.
 **publisher_name**        | The display name of the publisher of this app.
 **publisher_url**         | The website of the publisher of this app. ![android_only](../images/android_logo.jpg)
 **related**               | A dictionary of related apps as presented by the source system. The keys are an identifier for the section of related apps, such as `also_installed`. The values are lists of app ids.

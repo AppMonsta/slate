@@ -153,13 +153,13 @@ Parameter         | Required | Value
 
 Field               | Description
 ------------------- | -----------
-**app_id**          | The app id of the app.
+**app_id**          | The app ID of the app.
 **app_name**        | The name of the app.
 **avg_rating**      | An average of the individual ratings, based on a 1-5 scale.
 **country**         | The country this ranking list is for; 2 letter country code.
 **icon_url**        | The url of the app icon.
 **price**           | The price of the app, if it can be scraped from the ranking list.
-**publisher_id**    | The id of the publisher of this app as assigned by the store.
+**publisher_id**    | The ID of the publisher of this app as assigned by the store.
 **publisher_name**  | The display name of the publisher of this app.
 **rank**            | The numerical rank of this app in the given ranking list. Ie, the first app in the list would have 1 for this field, second app would have 2, etc.
 **rank_list**       | The identifier of which ranking list this is for. We try and use whatever identifier the store uses when possible. If not, we use the display name of the ranking list from the store.

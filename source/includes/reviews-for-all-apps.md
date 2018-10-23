@@ -133,7 +133,7 @@ Parameter         | Required | Value
 
 Field                    | Description
 ------------------------ | -----------
-**app_id**               | The app id of the app this review is for.
+**app_id**               | The app ID of the app this review is for.
 **app_version**          | The app version this review is for, if present.
 **date**                 | Review date as a string in ISO format: `YYYY-MM-DD`.
 **date_str**             | The original review date format, a string.
@@ -141,7 +141,7 @@ Field                    | Description
 **language**             | The language the review was written in.
 **last_scraped**         | Timestamp representing review last scrape date.
 **rating**               | The star rating the user gave with this review. 1-5.
-**review_id**            | The id assigned by the store. May be non-unique across apps.
+**review_id**            | The ID assigned by the store. May be non-unique across apps.
 **review_text**          | The text of the body of the review.
 **title**                | The title/subject line of the review, as written by the user, if there is one.
 **user_id**              | The unique identifier for the user as assigned by the store ( deprecated for iTunes ). ![android_only](../images/android_logo.jpg)

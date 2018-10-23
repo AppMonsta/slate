@@ -20,7 +20,7 @@ Parameter         | Required | Value
 Field                    | Description
 ------------------------ | -----------
 **status**               | Can be SUCCESS, ERROR, or ABORTED, if the request completed successfully, there are server side errors or the client aborted the request, respectively.
-**request_id**           | Equals to the request id given as parameter.
+**request_id**           | Equals to the request ID given as parameter.
 **records**              | Number of records sent as response. Only available on SUCCESS.
 **md5**                  | md5 sum of the response data. This does not include headers, but only the HTTP body sent. Only available on SUCCESS.
 
