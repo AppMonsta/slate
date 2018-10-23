@@ -6,6 +6,35 @@
 curl --compress -u '{API_KEY}:X' \
     https://api.appmonsta.com/v1/stores/android/details.json?date=2018-10-01&country=US
 ```
+
+```ruby
+require 'net/https'
+require 'json'
+
+uri = URI('https://api.appmonsta.com/v1/stores/android/details.json?date=2018-10-01&country=US')
+username = "{API_KEY}"
+password = "X" # Password can be anything.
+
+Net::HTTP.start(uri.host, uri.port,
+  :use_ssl => uri.scheme == 'https') do |http|
+  request = Net::HTTP::Get.new uri
+  request.basic_auth username, password
+
+  http.request request do |response|
+      response.read_body do |chunk|
+        # Parse/load and print valid json data
+        begin
+          chunk.each_line do |line|
+          json_record = JSON.parse(line)
+          print json_record
+          end
+        rescue JSON::ParserError
+        end
+    end
+  end
+end
+```
+
 ```python
 # This example uses Python Requests library http://docs.python-requests.org/en/master/
 import requests
@@ -18,7 +47,7 @@ payload = {
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
-response = requests.get("https://api.appmonsta.com/v1/stores/android/details.json",
+response = requests.get("https://api.appmonsta.com/v1/stores/android/details.json?date=2018-10-01&country=US",
                         auth=("{API_KEY}", "X"),
                         params=payload,
                         headers=headers,
@@ -26,9 +55,11 @@ response = requests.get("https://api.appmonsta.com/v1/stores/android/details.jso
 
 print response.status_code
 for line in response.iter_lines():
-  record = json.loads(line)
-  print record
+  # Load json object and print it out
+  json_record = json.loads(line)
+  print json_record
 ```
+
 ```java
 // This example uses java Unirest library http://unirest.io/java.html
 
@@ -49,29 +80,27 @@ while((line = in.readLine()) != null) {
   System.out.println(line);
 }
 ```
-```ruby
-# This example uses http Ruby gem https://github.com/httprb/http
-require 'http'
 
-params = {
-  :date => "2018-10-01",
-  :country => "US",
-}
+```php
+<?php
+$url = "https://api.appmonsta.com/v1/stores/android/details.json?country=US&date=2018-10-12";
+$username = "{API_KEY}";
+$password = "X"; // Password can be anything
 
-# This header turns on compression to reduce the bandwidth usage and transfer time.
-headers =  {'Accept-Encoding' => "deflate, gzip" }
-auth = HTTP.basic_auth(:user => '{API_KEY}', :pass => 'X')
-response = auth.get('https://api.appmonsta.com/v1/stores/android/details.json',
-                    :headers => headers,
-                    :params => params)
-
-puts response.status
-
-body = response.body
-begin
-  data = body.readpartial
-  puts data
-end while data != nil
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 500);
+curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) {
+    // Parse json and print data
+    $json_record = json_decode((string)$data, true);
+    echo json_encode($json_record);
+    return strlen($data);
+});
+curl_exec($ch);
+curl_close($ch);
+?>
 ```
 
 > The above code loads one app record per line and prints them out:
@@ -198,7 +227,7 @@ See previous call, [Details for a single app](#details-for-a-single-app).
 
 Header            | Description
 ----------------- | -----------
-**X-Request-ID**  | The ID of the request to validate via Request Status API.
+**X-Request-ID**  | The ID of the request to validate via ![Request Status API](#get-request-status).
 
 <aside class="notice">
 Any subscription for API access to this call includes ALL, regardless of what other

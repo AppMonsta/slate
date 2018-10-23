@@ -6,6 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - ruby
   - python
   - java
+  - php
 
 toc_footers:
   - <a href='/support'>Contact Support</a>
@@ -94,9 +95,9 @@ The API uses the following error codes:
 Error Code | Meaning
 ---------- | -------
 **400** | Bad input parameter or malformed request. The error message should indicate what is specifically wrong.
-**401** | Missing or bad API key (email datageeks@appmonsta.com if you need a new API key).
-**403** | You're requesting something your subscription doesn't cover (email datageeks@appmonsta.com if you'd like to change your subscription).
+**401** | Missing or bad API key (email datageeks[at]appmonsta.com if you need a new API key).
+**403** | You're requesting something your subscription doesn't cover (email datageeks[at]appmonsta.com if you'd like to change your subscription).
 **404** | The data isn't available yet. This may be because we're still collecting it.
-**429** | You've exceeded the rate limit for the API you're trying to access. Wait a little or contact datageeks@appmonsta.com.
-**500** | Something went wrong on our end. Email us at datageeks@appmonsta.com with the details of your API request, and we'll troubleshoot it ASAP.
+**429** | You've exceeded the rate limit for the API you're trying to access. Wait a little or contact datageeks[at]appmonsta.com.
+**500** | Something went wrong on our end. Email us at datageeks[at]appmonsta.com with the details of your API request, and we'll troubleshoot it ASAP.
 

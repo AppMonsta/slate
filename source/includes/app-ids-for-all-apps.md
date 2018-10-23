@@ -3,27 +3,56 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u '{API_KEY}:X' https://api.appmonsta.com/v1/stores/android/ids
+curl --compress -u '{API_KEY}:X' \
+    https://api.appmonsta.com/v1/stores/android/ids
+```
+
+```ruby
+require 'net/https'
+require 'json'
+
+uri = URI('https://api.appmonsta.com/v1/stores/android/ids')
+username = "{API_KEY}"
+password = "X" # Password can be anything.
+
+Net::HTTP.start(uri.host, uri.port,
+  :use_ssl => uri.scheme == 'https') do |http|
+  request = Net::HTTP::Get.new uri
+  request.basic_auth username, password
+
+  http.request request do |response|
+      response.read_body do |chunk|
+        # Parse/load and print valid json data
+        begin
+          chunk.each_line do |line|
+          json_record = JSON.parse(line)
+          print json_record
+          end
+        rescue JSON::ParserError
+        end
+    end
+  end
+end
 ```
 
 ```python
 # This example uses Python Requests library http://docs.python-requests.org/en/master/
 import requests
+import json
 
-payload = {
-}
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
 response = requests.get("https://api.appmonsta.com/v1/stores/android/ids",
                         auth=("{API_KEY}", "X"),
-                        params=payload,
                         headers=headers,
                         stream=True)
 
 print response.status_code
-for app_id in response.iter_lines():
-  print app_id
+for line in response.iter_lines():
+  # Load json object and print it out
+  json_record = json.loads(line)
+  print json_record
 ```
 
 ```java
@@ -39,32 +68,32 @@ HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android
 int status = response.getStatus();
 
 BufferedReader in = new BufferedReader(new InputStreamReader(response.getRawBody()));
-String appId = null;
-while((appId = in.readLine()) != null) {
-  System.out.println(appId);
+String line = null;
+while((line = in.readLine()) != null) {
+  System.out.println(line);
 }
 ```
-```ruby
-# This example uses http Ruby gem https://github.com/httprb/http
-require 'http'
 
-params = {
-}
+```php
+<?php
+$url = "https://api.appmonsta.com/v1/stores/android/ids";
+$username = "{API_KEY}";
+$password = "X"; // Password can be anything
 
-# This header turns on compression to reduce the bandwidth usage and transfer time.
-headers =  {'Accept-Encoding' => "deflate, gzip" }
-auth = HTTP.basic_auth(:user => '{API_KEY}', :pass => 'X')
-response = auth.get('https://api.appmonsta.com/v1/stores/android/ids',
-                    :headers => headers,
-                    :params => params)
-
-puts response.status
-
-body = response.body
-begin
-  app_id = body.readpartial
-  puts app_id
-end while app_id != nil
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 500);
+curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) {
+    // Parse json and print data
+    $json_record = json_decode((string)$data, true);
+    echo json_encode($json_record);
+    return strlen($data);
+});
+curl_exec($ch);
+curl_close($ch);
+?>
 ```
 
 > The above code loads one record per line and prints it out:
@@ -101,7 +130,7 @@ One app ID per line.
 
 Header            | Description
 ----------------- | -----------
-**X-Request-ID**  | The ID of the request to validate via Request Status API.
+**X-Request-ID**  | The ID of the request to validate via ![Request Status API](#get-request-status).
 
 <aside class="notice">
 NOTE: This is a bulk API call. Bulk API calls return one record per line.
