@@ -177,7 +177,7 @@ Parameter         | Required | Value
 **store**         | Yes      | `android` or `itunes`.
 **country_code**  | Yes      | The two letter country code of the country to fetch this app's details for, or `ALL` if you don't care which country.
 **app_id**        | Yes      | The unique app identifier (bundle ID) for the correct store.
-**show_dead**     | No       | If show_dead=1 is present, show apps that aren't currently available in the store.
+**show_dead**     | No       | If `show_dead=1` is present, show apps that aren't currently available in the store.
 
 ### Response Fields
 
@@ -258,7 +258,7 @@ Field                    | Description
 **requires_os**           | A string indicating the minimum OS/platform version this app requires, if present.
 **screenshot_urls**       | An array of screenshot urls.
 **seller**                | App seller name as it appears on Apple’s App Store. ![itunes_only](../images/itunes_logo.jpg)
-**status**                | Indicates what `status_date` is in relationship to. If it is either "updated" or "released", the app is available for download. If it is "dead", the app is no longer present in the store.
+**status**                | Indicates an app status, in relationship to its <code>status_date</code>. If it is either "updated" or "released", the app is available for download. If it is "dead", the app is no longer present in the store.
 **status_date**           | The date the app was updated or released, as a string in whatever format it's displayed on the store.
 **status_unix_timestamp** | The parsed unix timestamp of the `status_date` field.
 **store_url**             | App store URL.

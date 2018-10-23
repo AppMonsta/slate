@@ -80,10 +80,8 @@ information on how to add this header refer to code examples below.
 ## Authentication
 
 Requests to the REST API are protected with HTTP Basic authentication. You must provide your API
-key to each request made against our API. If you've an account then you can find your API key in
-account settings or displayed at the top of this page (you need to be logged in). Otherwise you can
-always get one here (if you lost your key you can just enter your email again and we will retrieve
-it for you).
+key to each request made against our API. You can always get a new one <a href='/dashboard/get_api_key/'> here </a>.
+If you lost your key you can just enter your email again and we will retrieve it for you.
 
 <aside class="warning">
 Requests have to use HTTPS. Using HTTP will return 400 error response.
