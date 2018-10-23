@@ -34,7 +34,7 @@ For a successfully completed request:
   "records": 10,
   "md5": "2909acb51bdb441b1f29f703ae6831e2",
   "request_id": "874995c4d75b4cb6bb8bbf6d3ef1d2da"
-}        
+}
 ```
 
 For requests that failed because of server error:

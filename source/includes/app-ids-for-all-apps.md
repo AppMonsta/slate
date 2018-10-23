@@ -130,7 +130,7 @@ One app ID per line.
 
 Header            | Description
 ----------------- | -----------
-**X-Request-ID**  | The ID of the request to validate via Request Status API.
+**X-Request-ID**  | The ID of the request to validate via ![Request Status API](#get-request-status).
 
 <aside class="notice">
 NOTE: This is a bulk API call. Bulk API calls return one record per line.

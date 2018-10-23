@@ -227,7 +227,7 @@ See previous call, [Details for a single app](#details-for-a-single-app).
 
 Header            | Description
 ----------------- | -----------
-**X-Request-ID**  | The ID of the request to validate via Request Status API.
+**X-Request-ID**  | The ID of the request to validate via ![Request Status API](#get-request-status).
 
 <aside class="notice">
 Any subscription for API access to this call includes ALL, regardless of what other
