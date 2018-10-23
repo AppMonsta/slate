@@ -19,11 +19,7 @@ We do our best to find all apps, but occasionally we miss one (there isn't a com
 
 ### HTTPS Request
 
-`https://api.appmonsta.com/v1/stores/<store>/details/<app_id>.json`
-
-### Request Method
-
-`PUT`
+`PUT https://api.appmonsta.com/v1/stores/<store>/details/<app_id>.json`
 
 ### Request Parameters
 
