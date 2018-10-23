@@ -63,6 +63,6 @@ For an unknown request:
 }
 ```
 
-<aside class="notice">
-NOTE: This API will return ERROR for all ongoing requests. Please make sure to query this API after the connection ends.
+<aside class="warning">
+This API will return ERROR for all ongoing requests. Please make sure to query this API after the connection ends.
 </aside>
