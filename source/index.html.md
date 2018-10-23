@@ -29,7 +29,7 @@ search: true
 AppEverything API gives you access to:
 
 * [Rankings](#rankings): Apps that show up on ranking lists (ie. Overall, Top Grossing, etc).
-* [Details](#details-for-a-single-app):  Basic data about each app (data on the app description page).
+* [Details](#details-for-a-single-app):  Basic data about each app (data on the app description page). Get data about single app or all apps with one API call.
 * [Reviews](#reviews-for-all-apps): User reviews associated with each app.
 * And more.
 
