@@ -22,11 +22,10 @@ Net::HTTP.start(uri.host, uri.port,
 
   http.request request do |response|
       response.read_body do |chunk|
-        # Parse/load and print valid json data
+        # Print one app ID per line
         begin
           chunk.each_line do |line|
-          json_record = JSON.parse(line)
-          print json_record
+          print line
           end
         rescue JSON::ParserError
         end
@@ -50,9 +49,8 @@ response = requests.get("https://api.appmonsta.com/v1/stores/android/ids",
 
 print response.status_code
 for line in response.iter_lines():
-  # Load json object and print it out
-  json_record = json.loads(line)
-  print json_record
+  # Print one app ID per line
+  print line
 ```
 
 ```java
@@ -86,9 +84,8 @@ curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 500);
 curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) {
-    // Parse json and print data
-    $json_record = json_decode((string)$data, true);
-    echo json_encode($json_record);
+    // Print one app ID per line
+    echo ($data);
     return strlen($data);
 });
 curl_exec($ch);
@@ -96,7 +93,7 @@ curl_close($ch);
 ?>
 ```
 
-> The above code loads one record per line and prints it out:
+> The above code outputs one app ID per line:
 
 ```
 air.com.escapegamesmobi.CuckooBirdRescue
