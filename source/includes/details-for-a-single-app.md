@@ -299,6 +299,7 @@ Field                    | Description
 **store_url**             | App store URL.
 **support_url**           | A support url for this app, if it differs from `publisher_url`. ![itunes_only](../images/itunes_logo.jpg)
 **top_developer**         | A boolean whether this apps developer is marked as a top developer. ![android_only](../images/android_logo.jpg)
+**translated_description**| Translated app description, when in other language than expected. ![android_only](../images/android_logo.jpg)
 **version**               | The current version of the app.
 **video_urls**            | An array of urls of demo videos for this app, if present.
 **whats_new**             | The text of the "What's new in this version" writeup, if present.
