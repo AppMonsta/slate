@@ -286,7 +286,7 @@ Field                    | Description
 **publisher_email**       | The email address of the publisher of this app, if present. ![android_only](../images/android_logo.jpg)
 **publisher_id**          | The ID of the publisher of this app as assigned by the store.
 **publisher_name**        | The display name of the publisher of this app.
-**publisher_url**         | The website of the publisher of this app. ![android_only](../images/android_logo.jpg)
+**publisher_url**         | The website of the publisher of this app.
 **related**               | A dictionary of related apps as presented by the source system. The keys are an identifier for the section of related apps, such as `also_installed`. The values are lists of app IDs.
 **release_date**          | String containing app release date in ISO format.
 **requires_hardware**     | A string indicating which hardware is required to run this app. ![itunes_only](../images/itunes_logo.jpg)
