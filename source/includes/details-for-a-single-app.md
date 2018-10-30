@@ -301,6 +301,6 @@ Field                    | Description
 **top_developer**         | A boolean whether this apps developer is marked as a top developer. ![android_only](../images/android_logo.jpg)
 **translated_description**| Translated app description, when in other language than expected. ![android_only](../images/android_logo.jpg)
 **version**               | The current version of the app.
-**video_urls**            | An array of urls of demo videos for this app, if present.
+**video_urls**            | An array of urls of demo videos for this app, if present. ![android_only](../images/android_logo.jpg)
 **whats_new**             | The text of the "What's new in this version" writeup, if present.
 
