@@ -279,12 +279,14 @@ Field                    | Description
 ```
  &nbsp;                   | &nbsp;
 ------------------------  | ------
-**price**                 | The price of the app.
+**price**                 | The price of the app, as displayed on the store side.
+**price_currency**        | Price currency, according to ISO 4271 standard.
+**price_value**           | Price value, expressed as digits only.
 **publisher_address**     | Physical address of the publisher if listed in the app store. ![android_only](../images/android_logo.jpg)
 **publisher_email**       | The email address of the publisher of this app, if present. ![android_only](../images/android_logo.jpg)
 **publisher_id**          | The ID of the publisher of this app as assigned by the store.
 **publisher_name**        | The display name of the publisher of this app.
-**publisher_url**         | The website of the publisher of this app. ![android_only](../images/android_logo.jpg)
+**publisher_url**         | The website of the publisher of this app.
 **related**               | A dictionary of related apps as presented by the source system. The keys are an identifier for the section of related apps, such as `also_installed`. The values are lists of app IDs.
 **release_date**          | String containing app release date in ISO format.
 **requires_hardware**     | A string indicating which hardware is required to run this app. ![itunes_only](../images/itunes_logo.jpg)
@@ -297,7 +299,8 @@ Field                    | Description
 **store_url**             | App store URL.
 **support_url**           | A support url for this app, if it differs from `publisher_url`. ![itunes_only](../images/itunes_logo.jpg)
 **top_developer**         | A boolean whether this apps developer is marked as a top developer. ![android_only](../images/android_logo.jpg)
+**translated_description**| Translated app description, when in other language than expected. ![android_only](../images/android_logo.jpg)
 **version**               | The current version of the app.
-**video_urls**            | An array of urls of demo videos for this app, if present.
+**video_urls**            | An array of urls of demo videos for this app, if present. ![android_only](../images/android_logo.jpg)
 **whats_new**             | The text of the "What's new in this version" writeup, if present.
 

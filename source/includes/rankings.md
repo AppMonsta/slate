@@ -155,7 +155,7 @@ Field               | Description
 ------------------- | -----------
 **app_id**          | The app ID of the app.
 **app_name**        | The name of the app.
-**avg_rating**      | An average of the individual ratings, based on a 1-5 scale.
+**avg_rating**      | An average of the individual ratings, based on a 1-5 scale. ![android_only](../images/android_logo.jpg)
 **country**         | The country this ranking list is for; 2 letter country code.
 **icon_url**        | The url of the app icon.
 **price**           | The price of the app, if it can be scraped from the ranking list.

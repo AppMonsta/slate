@@ -136,15 +136,13 @@ Field                    | Description
 **app_id**               | The app ID of the app this review is for.
 **app_version**          | The app version this review is for, if present.
 **date**                 | Review date as a string in ISO format: `YYYY-MM-DD`.
-**date_str**             | The original review date format, a string.
-**device**               | The device the user is using, if present.
-**language**             | The language the review was written in.
-**last_scraped**         | Timestamp representing review last scrape date.
+**date_str**             | The original review date format, a string. ![android_only](../images/android_logo.jpg)
+**language**             | The language the review was written in. ![android_only](../images/android_logo.jpg)
 **rating**               | The star rating the user gave with this review. 1-5.
 **review_id**            | The ID assigned by the store. May be non-unique across apps.
 **review_text**          | The text of the body of the review.
 **title**                | The title/subject line of the review, as written by the user, if there is one.
-**user_id**              | The unique identifier for the user as assigned by the store ( deprecated for iTunes ). ![android_only](../images/android_logo.jpg)
+**user_id**              | The unique identifier for the user as assigned by the store ( deprecated for iTunes since August 2016 ). ![android_only](../images/android_logo.jpg)
 **user_name**            | The display name of the user writing the review.
 
 ### Response Headers
