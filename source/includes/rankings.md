@@ -16,7 +16,7 @@ date = "{{ date }}"
 username = "{API_KEY}"
 password = "X" # Password can be anything.
 
-uri = URI("https://api.appmonsta.com/v1/stores/android/rankings.json?date=#{$date}&country=#{$country}")
+uri = URI("https://api.appmonsta.com/v1/stores/android/rankings.json?date=#{date}&country=#{country}")
 
 Net::HTTP.start(uri.host, uri.port,
   :use_ssl => uri.scheme == 'https') do |http|
