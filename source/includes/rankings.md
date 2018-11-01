@@ -4,16 +4,19 @@
 
 ```shell
 curl --compress -u '{API_KEY}:X' \
-    https://api.appmonsta.com/v1/stores/android/rankings.json?date=2018-10-01&country=US
+    https://api.appmonsta.com/v1/stores/android/rankings.json?date={{ date }}&country=US
 ```
 
 ```ruby
 require 'net/https'
 require 'json'
 
-uri = URI('https://api.appmonsta.com/v1/stores/android/rankings.json?date=2018-10-01&country=US')
+country = "US"
+date = "{{ date }}"
 username = "{API_KEY}"
 password = "X" # Password can be anything.
+
+uri = URI("https://api.appmonsta.com/v1/stores/android/rankings.json?date=#{$date}&country=#{$country}")
 
 Net::HTTP.start(uri.host, uri.port,
   :use_ssl => uri.scheme == 'https') do |http|
@@ -40,8 +43,8 @@ end
 import requests
 import json
 
-payload = {
-  "date": "2018-10-01",
+params = {
+  "date": "{{ date }}",
   "country": "US",
 }
 
@@ -49,7 +52,7 @@ payload = {
 headers = {'Accept-Encoding': 'deflate, gzip'}
 response = requests.get("https://api.appmonsta.com/v1/stores/android/rankings.json",
                         auth=("{API_KEY}", "X"),
-                        params=payload,
+                        params=params,
                         headers=headers,
                         stream=True)
 
@@ -68,7 +71,7 @@ HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth("{API_KEY}", "X")
   .queryString("apiKey", "123")
-  .queryString("date", "2018-10-01")
+  .queryString("date", "{{ date }}")
   .queryString("country", "US")
   .asString();
 
@@ -83,9 +86,12 @@ while((line = in.readLine()) != null) {
 
 ```php
 <?php
-$url = "https://api.appmonsta.com/v1/stores/android/rankings.json?country=US&date=2018-10-12";
+$country = "US";
+$date = "{{ date }}";
 $username = "{API_KEY}";
 $password = "X"; // Password can be anything
+
+$url = "https://api.appmonsta.com/v1/stores/android/rankings.json?country=$country&date=$date";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$url);
