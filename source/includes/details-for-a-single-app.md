@@ -4,7 +4,7 @@
 
 ```shell
 curl --compress -u '{API_KEY}:X' \
-    https://api.appmonsta.com/v1/stores/android/details/com.facebook.orca.json\?country=US
+    https://api.appmonsta.com/v1/stores/android/details/com.facebook.orca.json?country=US
 ```
 
 ```ruby
