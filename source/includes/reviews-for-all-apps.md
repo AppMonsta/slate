@@ -11,9 +11,11 @@ curl --compress -u '{API_KEY}:X' \
 require 'net/https'
 require 'json'
 
-uri = URI('https://api.appmonsta.com/v1/stores/android/reviews.json?language=en')
+language = "en"
 username = "{API_KEY}"
 password = "X" # Password can be anything.
+
+uri = URI("https://api.appmonsta.com/v1/stores/android/reviews.json?language=#{language}")
 
 Net::HTTP.start(uri.host, uri.port,
   :use_ssl => uri.scheme == 'https') do |http|
@@ -40,12 +42,17 @@ end
 import requests
 import json
 
+params = {
+  "language": "en",
+}
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
-response = requests.get("https://api.appmonsta.com/v1/stores/android/reviews.json?language=en",
+
+response = requests.get("https://api.appmonsta.com/v1/stores/android/reviews.json" ,
                         auth=("{API_KEY}", "X"),
                         headers=headers,
+                        params=params,
                         stream=True)
 
 print response.status_code
@@ -58,11 +65,11 @@ for line in response.iter_lines():
 ```java
 // This example uses java Unirest library http://unirest.io/java.html
 
-HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android/reviews.json?language=en")
+HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android/reviews.json")
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth("{API_KEY}", "X")
-  .queryString("apiKey", "123")
+  .queryString("language", language)
   .asString();
 
 int status = response.getStatus();
@@ -76,9 +83,12 @@ while((line = in.readLine()) != null) {
 
 ```php
 <?php
-$url = "https://api.appmonsta.com/v1/stores/android/reviews.json?language=en";
+
+$language = "en";
 $username = "{API_KEY}";
 $password = "X"; // Password can be anything
+
+$url = "https://api.appmonsta.com/v1/stores/android/reviews.json?language=$language";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$url);
@@ -96,7 +106,7 @@ curl_close($ch);
 ?>
 ```
 
-> The above code returns reviews records in bulk; these will look like below:
+> The above code returns a streaming response with one record per line:
 
 ```json
 {
@@ -114,7 +124,7 @@ curl_close($ch);
 ```
 
 Request most recent app reviews dump.
-This is a bulk API call, returning one record per line.
+This is a bulk API call, returning a streaming response with one record per line.
 
 ### HTTPS Request
 
