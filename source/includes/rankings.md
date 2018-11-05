@@ -31,7 +31,7 @@ Net::HTTP.start(uri.host, uri.port,
 
   http.request request do |response|
       response.read_body do |chunk|
-        # Parse/load and print valid json data
+        # Load json object and print it out
         begin
           chunk.each_line do |line|
           json_record = JSON.parse(line)
@@ -136,7 +136,7 @@ curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 500);
 curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) {
-    // Parse json and print data
+    // Load json object and print it out
     $json_record = json_decode((string)$data, true);
     echo json_encode($json_record);
     return strlen($data);
