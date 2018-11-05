@@ -74,11 +74,21 @@ for line in response.iter_lines():
 ```java
 // This example uses java Unirest library http://unirest.io/java.html
 
-HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android/ids")
+// Request Parameters
+store = "android";      // Could be either "android" or "itunes".
+
+// Auth Parameters
+username = "{API_KEY}"; // Replace {API_KEY} with your own API key.
+password = "X";         // Password can be anything.
+
+// Request URL
+requestUrl = "https://api.appmonsta.com/v1/stores/" + store + "android/ids"
+
+// Java Main Code Sample
+HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
-  .basicAuth("{API_KEY}", "X")
-  .queryString("apiKey", "123")
+  .basicAuth(username, password)
   .asString();
 
 int status = response.getStatus();

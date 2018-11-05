@@ -54,18 +54,19 @@ store = "android"       # Could be either "android" or "itunes".
 country_code = "US"     # Two letter country code.
 app_id = "com.facebook.orca" # Unique app identifier (bundle ID).
 
-req_params = {"country": country_code,
-}
+req_params = {"country": country_code}
 
-# This header turns on compression to reduce the bandwidth usage and transfer time.uth Parameters
+# Auth Parameters
 username = "{API_KEY}"  # Replace {API_KEY} with your own API key.
 password = "X"          # Password can be anything.
 
 # Request URL
 url = "https://api.appmonsta.com/v1/stores/%s/details/%s.json" % (store, app_id)
 
-# Python Main Code Sample
+# This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
+
+# Python Main Code Sample
 response = requests.get(url,
                         auth=(username, password),
                         params=req_params,
@@ -82,12 +83,24 @@ for line in response.iter_lines():
 ```java
 // This example uses java Unirest library http://unirest.io/java.html
 
-HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android/details/com.facebook.orca.json")
+// Request Parameters
+store = "android";      // Could be either "android" or "itunes".
+countryCode = "US";     // Two letter country code.
+appId = "com.facebook.orca";    // Unique app identifier (bundle ID).
+
+// Auth Parameters
+username = "{API_KEY}"; // Replace {API_KEY} with your own API key.
+password = "X";         // Password can be anything.
+
+// Request URL
+requestUrl = "https://api.appmonsta.com/v1/stores/" + store + "/details/" + appId + ".json"
+
+// Java Main Code Sample
+HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
-  .basicAuth("{API_KEY}", "X")
-  .queryString("apiKey", "123")
-  .queryString("country", "US")
+  .basicAuth(username, password)
+  .queryString("country", countryCode)
   .asString();
 
 int status = response.getStatus();

@@ -55,8 +55,7 @@ country_code = "US"     # Two letter country code.
 date = "{{ date }}"     # Date in YYYY-MM-DD format.
 
 req_params = {"date": date,
-              "country": country_code,
-}
+              "country": country_code}
 
 # Auth Parameters
 username = "{API_KEY}"  # Replace {API_KEY} with your own API key.
@@ -95,10 +94,10 @@ username = "{API_KEY}"; // Replace {API_KEY} with your own API key.
 password = "X";         // Password can be anything.
 
 // Request URL
-request_url = "https://api.appmonsta.com/v1/stores/" + store + "/rankings.json";
+requestUrl = "https://api.appmonsta.com/v1/stores/" + store + "/rankings.json";
 
 // Java Main Code Sample
-HttpResponse response = Unirest.get(request_url)
+HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth(username, password)  
