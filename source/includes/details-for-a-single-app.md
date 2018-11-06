@@ -11,10 +11,19 @@ curl --compress -u '{API_KEY}:X' \
 require 'net/https'
 require 'json'
 
-uri = URI('https://api.appmonsta.com/v1/stores/android/details/com.facebook.orca.json?country=US')
-username = "{API_KEY}"
-password = "X" # Password can be anything.
+# Request Parameters
+store = "android"       # Could be either "android" or "itunes".
+country_code = "US"     # Two letter country code.
+app_id = "com.facebook.orca" # Unique app identifier (bundle ID).
 
+# Auth Parameters
+username = "{API_KEY}"  # Replace {API_KEY} with your API own key.
+password = "X"          # Password can be anything.
+
+# Request URL
+uri = URI("https://api.appmonsta.com/v1/stores/#{store}/details/#{app_id}.json?country=#{country_code}")
+
+# Ruby Main Code Sample
 Net::HTTP.start(uri.host, uri.port,
   :use_ssl => uri.scheme == 'https') do |http|
   request = Net::HTTP::Get.new uri
@@ -22,7 +31,7 @@ Net::HTTP.start(uri.host, uri.port,
 
   http.request request do |response|
       response.read_body do |chunk|
-        # Parse/load and print valid json data
+        # Load json object and print it out
         begin
           chunk.each_line do |line|
           json_record = JSON.parse(line)
@@ -40,15 +49,27 @@ end
 import requests
 import json
 
-payload = {
-  "country": "US",
-}
+# Request Parameters
+store = "android"       # Could be either "android" or "itunes".
+country_code = "US"     # Two letter country code.
+app_id = "com.facebook.orca" # Unique app identifier (bundle ID).
+
+req_params = {"country": country_code}
+
+# Auth Parameters
+username = "{API_KEY}"  # Replace {API_KEY} with your own API key.
+password = "X"          # Password can be anything.
+
+# Request URL
+url = "https://api.appmonsta.com/v1/stores/%s/details/%s.json" % (store, app_id)
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
-response = requests.get("https://api.appmonsta.com/v1/stores/android/details/com.facebook.orca.json",
-                        auth=("{API_KEY}", "X"),
-                        params=payload,
+
+# Python Main Code Sample
+response = requests.get(url,
+                        auth=(username, password),
+                        params=req_params,
                         headers=headers,
                         stream=True)
 
@@ -62,12 +83,24 @@ for line in response.iter_lines():
 ```java
 // This example uses java Unirest library http://unirest.io/java.html
 
-HttpResponse response = Unirest.get("https://api.appmonsta.com/v1/stores/android/details/com.facebook.orca.json")
+// Request Parameters
+store = "android";      // Could be either "android" or "itunes".
+countryCode = "US";     // Two letter country code.
+appId = "com.facebook.orca";    // Unique app identifier (bundle ID).
+
+// Auth Parameters
+username = "{API_KEY}"; // Replace {API_KEY} with your own API key.
+password = "X";         // Password can be anything.
+
+// Request URL
+requestUrl = "https://api.appmonsta.com/v1/stores/" + store + "/details/" + appId + ".json"
+
+// Java Main Code Sample
+HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
-  .basicAuth("{API_KEY}", "X")
-  .queryString("apiKey", "123")
-  .queryString("country", "US")
+  .basicAuth(username, password)
+  .queryString("country", countryCode)
   .asString();
 
 int status = response.getStatus();
@@ -81,17 +114,26 @@ while((line = in.readLine()) != null) {
 
 ```php
 <?php
-$url = "https://api.appmonsta.com/v1/stores/android/details/com.facebook.orca.json?country=US";
-$username = "{API_KEY}";
-$password = "X"; // Password can be anything
+// Request Parameters
+$store = "android";      // Could be either "android" or "itunes".
+$countryCode = "US";     // Two letter country code.
+$appId = "com.facebook.orca";    // Unique app identifier (bundle ID).
 
+// Auth Parameters
+$username = "{API_KEY}"; // Replace {API_KEY} with your own API key.
+$password = "X";         // Password can be anything.
+
+// Request URL
+$url = "https://api.appmonsta.com/v1/stores/$store/details/$appId.json?country=US";
+
+// PHP Main Code Sample
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$url);
 curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 500);
 curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) {
-    // Parse json and print data
+    // Load json object and print it out
     $json_record = json_decode((string)$data, true);
     echo json_encode($json_record);
     return strlen($data);
