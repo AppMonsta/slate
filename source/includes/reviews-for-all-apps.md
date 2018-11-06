@@ -3,11 +3,14 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u '{API_KEY}:X' \
-    https://api.appmonsta.com/v1/stores/android/reviews.json?language=en
+curl --compress -u "{API_KEY}:X" \
+     "https://api.appmonsta.com/v1/stores/android/reviews.json?language=en"
 ```
 
 ```ruby
+require 'net/https'
+require 'json'
+
 # Request Parameters
 store = "android"       # Could be either "android" or "itunes".
 language = "en"         # Two letter language code.
@@ -62,7 +65,7 @@ url = "https://api.appmonsta.com/v1/stores/%s/reviews.json" % store
 headers = {'Accept-Encoding': 'deflate, gzip'}
 
 response = requests.get(url,
-                        auth=("username, password),
+                        auth=(username, password),
                         headers=headers,
                         params=req_params,
                         stream=True)
@@ -157,7 +160,7 @@ This is a bulk API call, returning a streaming response with one record per line
 
 ### HTTPS Request
 
-`GET https://api.appmonsta.com/v1/stores/<store>/reviews.json?country=<country_code>&date=<date>`
+`GET https://api.appmonsta.com/v1/stores/<store>/reviews.json?language=<language>`
 
 ### Request Parameters
 

@@ -3,8 +3,8 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u '{API_KEY}:X' \
-    https://api.appmonsta.com/v1/stores/android/details.json?date={{ date }}\&country=US
+curl --compress -u "{API_KEY}:X" \
+     "https://api.appmonsta.com/v1/stores/android/details.json?date={{ date }}&country=US"
 ```
 
 ```ruby
