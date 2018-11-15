@@ -1,4 +1,4 @@
-# Details for a single app
+# **Details for a single app**
 
 > Don't forget to replace `{API_KEY}` with your actual API key.
 

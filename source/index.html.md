@@ -27,7 +27,7 @@ includes:
 search: true
 ---
 
-# Introduction
+# **Introduction**
 
 AppEverything API gives you access to:
 

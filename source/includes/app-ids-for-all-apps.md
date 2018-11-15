@@ -1,4 +1,4 @@
-# App IDs for all apps
+# **App IDs for all apps**
 
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
