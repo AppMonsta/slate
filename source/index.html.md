@@ -15,8 +15,6 @@ toc_footers:
 
 includes:
   - rankings
-  - ranking-genres-metadata
-  - ranking-types-metadata
   - app-ids-for-all-apps
   - details-for-a-single-app
   - details-for-all-apps
