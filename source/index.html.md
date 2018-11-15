@@ -21,8 +21,8 @@ includes:
   - details-for-a-single-app
   - details-for-all-apps
   - app-publishers
-  - reviews-for-all-apps
   - app-availability
+  - reviews-for-all-apps
   - add-new-app
   - get-request-status
 
