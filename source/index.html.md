@@ -20,9 +20,9 @@ includes:
   - app-ids-for-all-apps
   - details-for-a-single-app
   - details-for-all-apps
+  - app-publishers
   - reviews-for-all-apps
   - app-availability
-  - app-publishers
   - add-new-app
   - get-request-status
 
