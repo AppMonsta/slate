@@ -177,7 +177,7 @@ curl_close($ch);
 }
 ```
 
-Request all rankings by date and by country.
+Request all rankings by date and by country. This call returns ranking records with all the available meta-data from the ranking list page.
 
 ### HTTPS Request
 
