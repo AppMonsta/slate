@@ -218,7 +218,7 @@ Header            | Description
 This is a bulk API call. Bulk API calls return one record per line.
 </aside>
 
-## Aggregate rankings
+## Aggregated rankings
 
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
@@ -381,7 +381,11 @@ curl_close($ch);
 ```
 
 
-Request aggregate rankings by date and by country.
+Request aggregated rankings by date and by country. This call returns records with ranked app ID's per country and per genre/type (not other meta-data). It's ideal if you're only interested in app rank positions.
+
+<aside class="notice">
+App ID's in the list are sorted according to their rank (from the top to the bottom). First app in the list is the top ranking app.
+</aside>
 
 ### HTTPS Request
 
