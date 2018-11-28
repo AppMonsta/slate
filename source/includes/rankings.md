@@ -572,7 +572,7 @@ curl_close($ch);
 {"parent_id":"6021","name":"Health, Mind & Body","genre_id":"13017"}
 ```
 
-Request all available ranking genres (also known as categories) by date. If you use [aggregated](#aggregated-rankings) API call then this call will map genre IDs to human readable genre names.
+Request all available ranking genres (also known as categories) by date. If you use [aggregated](#aggregated-rankings) API call, then this call will map genre IDs to human readable genre names.
 
 ### HTTPS Request
 
@@ -757,7 +757,7 @@ curl_close($ch);
 {"rank_id":"apps_topselling_new_free","name":"Top New Free"}
 ```
 
-Request all ranking types by date.
+Request all ranking types by date. Ranking types are ranking list types (names) as defined by the Google Play or iTunes store. If you use [aggregated](#aggregated) ranks API call, then this call will map ranking types to their human-readable names.
 
 ### HTTPS Request
 
