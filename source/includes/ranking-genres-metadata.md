@@ -152,7 +152,7 @@ curl_close($ch);
 {"parent_id":"6021","name":"Health, Mind & Body","genre_id":"13017"}
 ```
 
-Request all ranking genres by date.
+Request all ranking genres/categories by date.
 
 ### HTTPS Request
 
