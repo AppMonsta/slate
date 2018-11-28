@@ -142,7 +142,7 @@ curl_close($ch);
 {"app_id":440401960,"countries":["US"]}
 {"app_id":1350566056,"countries":["US","FR"]}
 ```
-Get a list of all the countries where an app is available.
+Get a list of all the countries where the app is available.
 
 ### HTTPS Request
 
