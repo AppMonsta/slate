@@ -147,7 +147,7 @@ curl_close($ch);
 {"url":"https:\/\/papplication.github.io\/site\/","name":"Oliver Papp","id":"896476189"}
 
 ```
-Get a list of all publisher IDs and details that AppMonsta knows about.
+Get a list of all publishers and their information that AppMonsta knows about.
 
 ### HTTPS Request
 
