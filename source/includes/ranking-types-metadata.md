@@ -152,7 +152,7 @@ curl_close($ch);
 {"rank_id":"apps_topselling_new_free","name":"Top New Free"}
 ```
 
-Request all ranking genres by date.
+Request all ranking list types metadata by date.
 
 ### HTTPS Request
 
