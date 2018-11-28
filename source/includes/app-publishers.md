@@ -165,7 +165,7 @@ Parameter         | Required | Value
 Parameter         | Description 
 ----------------- | ---------------------
 **name**          | The display name of the publisher.
-**id**            | The id of the publisher as assigned by the store.
+**id**            | The ID of the publisher as assigned by the store.
 **url**           | The website of the publisher.
 **address**       | Physical address of the publisher if listed in the app store. ![android_only](../images/android_logo.jpg)
 **email**         | The email address of the publisher of this app, if present. ![android_only](../images/android_logo.jpg)
