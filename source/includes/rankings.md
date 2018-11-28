@@ -407,7 +407,7 @@ Field               | Description
 **country**         | The country this ranking list is for; 2 letter country code.
 **genre_id**        | Genre ID (string). We force “overall” ID value for top level ranking lists.
 **rank_id**         | Ranking list type which serves also as identifier. Set by stores.
-**ranks**           | A list of ordered app ids. (array of strings for consistency between iTunes and google).
+**ranks**           | A list of ordered app ID's. (array of strings for consistency between iTunes and Google Play stores).
 
 ### Response Headers
 
