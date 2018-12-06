@@ -231,6 +231,7 @@ Parameter         | Required | Value
 **date**          | Yes      | In the following format: `YYYY-MM-DD`.
 **show_dead**     | No       | If `show_dead=1` is present, show apps that aren't currently available in the store.
 **only_changed**  | No       | If `only_changed=1` is present, only show apps that have changed (in any field) since the previous date.
+**old_values**    | No       | If `old_values=1` then each returned record will have `_old_values` key holding a dictionary of previous key:value entries. It can be only used in combination with `only_changed=1`.
 
 <aside class="notice">
 Any subscription for API access to this call includes ALL, regardless of what other
