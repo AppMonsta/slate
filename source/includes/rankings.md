@@ -177,7 +177,7 @@ curl_close($ch);
 }
 ```
 
-Request all rankings by date and by country. This call returns ranking records with all the available meta-data from the ranking list page.
+Request all rankings by date and by country. This call returns ranking records with all the available meta-data from the store's ranking list page.
 
 ### HTTPS Request
 
@@ -381,10 +381,10 @@ curl_close($ch);
 ```
 
 
-Request aggregated rankings by date and by country. This call returns records with ranked app ID's per country and per genre/type (not other meta-data). It's ideal if you're only interested in app rank positions.
+Request aggregated rankings by date and by country. This call returns records with ranked app IDs per country and per genre/category. It's ideal if you're only interested in app rank positions.
 
 <aside class="notice">
-App ID's in the list are sorted according to their rank (from the top to the bottom). First app in the list is the top ranking app.
+App IDs in the list are sorted according to their rank (from the top to the bottom). First app in the list is the top ranking app.
 </aside>
 
 ### HTTPS Request
@@ -405,9 +405,9 @@ Parameter         | Required | Value
 Field               | Description
 ------------------- | -----------
 **country**         | The country this ranking list is for; 2 letter country code.
-**genre_id**        | String representing rankin list genre/category, as returned by the store. We force “overall” ID value for top level ranking lists.
+**genre_id**        | String representing ranking list genre/category, as returned by the store. We force "overall" ID value for top level ranking lists.
 **rank_id**         | Ranking list type (string), which serves as identifier and it's set by stores.
-**ranks**           | A list of ordered app ID's. (array of strings for consistency between iTunes and Google Play stores).
+**ranks**           | A list of ordered app IDs. (array of strings for consistency between iTunes and Google Play stores).
 
 ### Response Headers
 
@@ -419,7 +419,7 @@ Header            | Description
 This is a bulk API call. Bulk API calls return one record per line.
 </aside>
 
-## Genres metadata
+## Ranking genres
 
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
@@ -572,7 +572,7 @@ curl_close($ch);
 {"parent_id":"6021","name":"Health, Mind & Body","genre_id":"13017"}
 ```
 
-Request all available ranking genres (also known as categories) by date. If you use [aggregated](#aggregated-rankings) API call, then this call will map genre IDs to human readable genre names.
+Request all available ranking genres (also known as categories) by date. If you use [aggregated](#aggregated-rankings) API call, then this call will map genre IDs to human-readable genre names.
 
 ### HTTPS Request
 
@@ -603,7 +603,7 @@ Header            | Description
 This is a bulk API call. Bulk API calls return one record per line.
 </aside>
 
-## List types metadata
+## Ranking list types
 
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
@@ -757,7 +757,7 @@ curl_close($ch);
 {"rank_id":"apps_topselling_new_free","name":"Top New Free"}
 ```
 
-Request all ranking types by date. Ranking types are ranking list types (names) as defined by the Google Play or iTunes store. If you use [aggregated](#aggregated) ranks API call, then this call will map ranking types to their human-readable names.
+Request all ranking list types by date. These are ranking list types (names) as defined by the Google Play or iTunes store. If you use [aggregated](#aggregated) ranks API call, then this call will map ranking types to their human-readable names.
 
 ### HTTPS Request
 
