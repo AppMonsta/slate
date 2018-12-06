@@ -146,10 +146,6 @@ curl_close($ch);
 {"rank_id":"topfreeapplications","name":"Top Free"}
 {"rank_id":"newapplications","name":"New Applications"}
 {"rank_id":"newgameswelove","name":"New Games We Love RSS"}
-
-{"rank_id":"apps_movers_shakers","name":"Trending Apps"}
-{"rank_id":"apps_tablet_featured","name":"Staff Picks for Tablet"}
-{"rank_id":"apps_topselling_new_free","name":"Top New Free"}
 ```
 
 Request all ranking list types metadata by date.

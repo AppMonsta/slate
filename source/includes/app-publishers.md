@@ -141,11 +141,6 @@ curl_close($ch);
 {"name":"andavis","url":"http:\/\/www.andavis.de","id":"andavis","address":"","email":"apps@andavis.de"}
 {"name":"Air Cab Ltd","url":"http:\/\/aircab.vn","id":"Air Cab Ltd","address":"","email":"aircab.vn@gmail.com"}
 {"name":"Right Pulse Works","url":"","id":"Right Pulse Works","address":"","email":"rightpulseapps@gmail.com"}
-
-{"url":"http:\/\/www.ozogluozbay.com.tr\/","name":"mustafa diler","id":"1118647768"}
-{"url":"http:\/\/blink.sh","name":"Carlos Cabanero","id":"1156707511"}
-{"url":"https:\/\/papplication.github.io\/site\/","name":"Oliver Papp","id":"896476189"}
-
 ```
 Get a list of all publishers and their information that AppMonsta knows about.
 

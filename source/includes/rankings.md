@@ -162,19 +162,6 @@ curl_close($ch);
   "publisher_name": "Robinhood",
   "avg_rating": "4.6"
 }
-{
-  "rank_list": "apps_movers_shakers-ANDROID_WEAR",
-  "app_name": "Any.do: To-do list, Calendar, Reminders & Planner",
-  "timestamp": "2018-10-01 17:13:59",
-  "country": "US",
-  "price": "Free",
-  "app_id": "com.anydo",
-  "rank": 2,
-  "publisher_id": "Any.do",
-  "icon_url": "https://lh3.googleusercontent.com/ZAn8LqhPFlUgBC7s25IHSmwEw6dDAYKOIBA9yCsCk2B6STy5gmzchlh2xyeD_AHd4T4=w170-rw",
-  "publisher_name": "Any.do",
-  "avg_rating": "4.5"
-}
 ```
 
 Request all rankings by date and by country. This call returns ranking records with all the available meta-data from the store's ranking list page.
@@ -373,11 +360,6 @@ curl_close($ch);
  "country":"US",
  "rank_id":"apps_movers_shakers",
  "genre_id":"LIFESTYLE"}
-
-{"ranks":["479516143","763692274","1396301917","640364616",...],
- "country":"US",
- "rank_id":"toppaidapplications",
- "genre_id":"7002"}
 ```
 
 
@@ -566,10 +548,6 @@ curl_close($ch);
 {"name":"Music & Audio","genre_id":"MUSIC_AND_AUDIO"}
 {"name":"Auto & Vehicles","genre_id":"AUTO_AND_VEHICLES"}
 {"parent_id":"FAMILY","name":"Family Brain Games","genre_id":"FAMILY_BRAINGAMES"}
-
-{"name":"Books","genre_id":"6018"}
-{"name":"Stickers","genre_id":"6025"}
-{"parent_id":"6021","name":"Health, Mind & Body","genre_id":"13017"}
 ```
 
 Request all available ranking genres (also known as categories) by date. If you use [aggregated](#aggregated-rankings) API call, then this call will map genre IDs to human-readable genre names.
@@ -751,10 +729,6 @@ curl_close($ch);
 {"rank_id":"topfreeapplications","name":"Top Free"}
 {"rank_id":"newapplications","name":"New Applications"}
 {"rank_id":"newgameswelove","name":"New Games We Love RSS"}
-
-{"rank_id":"apps_movers_shakers","name":"Trending Apps"}
-{"rank_id":"apps_tablet_featured","name":"Staff Picks for Tablet"}
-{"rank_id":"apps_topselling_new_free","name":"Top New Free"}
 ```
 
 Request all ranking list types by date. These are ranking list types (names) as defined by the Google Play or iTunes store. If you use [aggregated](#aggregated) ranks API call, then this call will map ranking types to their human-readable names.

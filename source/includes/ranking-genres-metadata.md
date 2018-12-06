@@ -146,10 +146,6 @@ curl_close($ch);
 {"name":"Music & Audio","genre_id":"MUSIC_AND_AUDIO"}
 {"name":"Auto & Vehicles","genre_id":"AUTO_AND_VEHICLES"}
 {"parent_id":"FAMILY","name":"Family Brain Games","genre_id":"FAMILY_BRAINGAMES"}
-
-{"name":"Books","genre_id":"6018"}
-{"name":"Stickers","genre_id":"6025"}
-{"parent_id":"6021","name":"Health, Mind & Body","genre_id":"13017"}
 ```
 
 Request all ranking genres/categories by date.
