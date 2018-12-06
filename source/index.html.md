@@ -18,6 +18,8 @@ includes:
   - app-ids-for-all-apps
   - details-for-a-single-app
   - details-for-all-apps
+  - app-publishers
+  - app-availability
   - reviews-for-all-apps
   - add-new-app
   - get-request-status
@@ -25,7 +27,7 @@ includes:
 search: true
 ---
 
-# Introduction
+# **Introduction**
 
 AppEverything API gives you access to:
 

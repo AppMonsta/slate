@@ -1,4 +1,4 @@
-# Get Request Status
+# **Get Request Status**
 
 Validate a bulk API request to see if it is successfully completed or had any errors.
 

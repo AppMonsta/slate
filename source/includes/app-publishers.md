@@ -1,9 +1,9 @@
-# **App IDs for all apps**
+# **App publishers**
 
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/ids"
+curl --compress -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/publishers.json"
 ```
 
 ```ruby
@@ -12,13 +12,14 @@ require 'json'
 
 # Request Parameters
 store = "android"       # Could be either "android" or "itunes".
+date = "{{ date }}"     # Date to check app details against (YYYY-MM-DD).
 
 # Auth Parameters
 username = "{API_KEY}"  # Replace {API_KEY} with your API own key.
 password = "X"          # Password can be anything.
 
 # Request URL
-uri = URI("https://api.appmonsta.com/v1/stores/#{store}/ids")
+uri = URI("https://api.appmonsta.com/v1/stores/#{store}/publishers.json?date=#{date}")
 
 # Ruby Main Code Sample
 Net::HTTP.start(uri.host, uri.port,
@@ -47,13 +48,16 @@ import json
 
 # Request Parameters
 store = "android"       # Could be either "android" or "itunes".
+date = "{{ date }}"     # Date in YYYY-MM-DD format.
+
+req_params = {"date": date}
 
 # Auth Parameters
 username = "{API_KEY}"  # Replace {API_KEY} with your API own key.
 password = "X"          # Password can be anything.
 
 # Request URL
-url = 'https://api.appmonsta.com/v1/stores/%s/ids' % store
+url = 'https://api.appmonsta.com/v1/stores/%s/publishers.json' % store
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
@@ -61,6 +65,7 @@ headers = {'Accept-Encoding': 'deflate, gzip'}
 # Python Main Code Sample
 response = requests.get(url,
                         auth=(username, password),
+                        params=req_params,
                         headers=headers,
                         stream=True)
 
@@ -75,19 +80,21 @@ for line in response.iter_lines():
 
 // Request Parameters
 store = "android";      // Could be either "android" or "itunes".
+date = "{{ date }}";    // Date in YYYY-MM-DD format.
 
 // Auth Parameters
 username = "{API_KEY}"; // Replace {API_KEY} with your own API key.
 password = "X";         // Password can be anything.
 
 // Request URL
-requestUrl = "https://api.appmonsta.com/v1/stores/" + store + "android/ids"
+requestUrl = "https://api.appmonsta.com/v1/stores/" + store + "android/publishers.json"
 
 // Java Main Code Sample
 HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth(username, password)
+  .queryString("date", $date),
   .asString();
 
 int status = response.getStatus();
@@ -103,13 +110,14 @@ while((line = in.readLine()) != null) {
 <?php
 // Request Parameters
 $store = "android";      // Could be either "android" or "itunes".
+$date = "{{ date }}";    // Date in YYYY-MM-DD format.
 
 // Auth Parameters
 $username = "{API_KEY}"; // Replace {API_KEY} with your own API key.
 $password = "X";         // Password can be anything.
 
 // Request URL
-$url = "https://api.appmonsta.com/v1/stores/$store/ids";
+$url = "https://api.appmonsta.com/v1/stores/$store/publishers.json?date=$date";
 
 // PHP Main Code Sample
 $ch = curl_init();
@@ -127,35 +135,35 @@ curl_close($ch);
 ?>
 ```
 
-> The above code outputs one app ID per line:
+> The above code loads one JSON per line and prints it out:
 
 ```
-air.com.escapegamesmobi.CuckooBirdRescue
-air.elisashopingdressupgames
-appinventor.ai_antonello_f_caterino.PoLet500
-appinventor.ai_nyanskyaw.Alpha_SVM
-ar.com.hermesonline.autoya
-ar3plus.siudase.baju
-bigdx.adw.slick.purple
-biz.buildapps.ahucabs
-cm.williamsofttech.gallerylockphotoandvideohideapplock
-co.vpsoft.kiribati_newspapers
+{"name":"andavis","url":"http:\/\/www.andavis.de","id":"andavis","address":"","email":"apps@andavis.de"}
+{"name":"Air Cab Ltd","url":"http:\/\/aircab.vn","id":"Air Cab Ltd","address":"","email":"aircab.vn@gmail.com"}
+{"name":"Right Pulse Works","url":"","id":"Right Pulse Works","address":"","email":"rightpulseapps@gmail.com"}
 ```
-Get a list of all the app IDs AppMonsta knows about.
+Get a list of all publishers and their information that AppMonsta knows about.
 
 ### HTTPS Request
 
-`GET https://api.appmonsta.com/v1/stores/<store>/ids`
+`GET https://api.appmonsta.com/v1/stores/<store>/publishers.json`
 
 ### Request Parameters
 
 Parameter         | Required | Value
 ----------------- | -------- | -----------
 **store**         | Yes      | `android` or `itunes`.
+**date**          | Yes      |	In the following format: YYYY-MM-DD.
 
 ### Response Fields
 
-One app ID per line.
+Parameter         | Description 
+----------------- | ---------------------
+**name**          | The display name of the publisher.
+**id**            | The ID of the publisher as assigned by the store.
+**url**           | The website of the publisher.
+**address**       | Physical address of the publisher if listed in the app store. ![android_only](../images/android_logo.jpg)
+**email**         | The email address of the publisher of this app, if present. ![android_only](../images/android_logo.jpg)
 
 ### Response Headers
 
@@ -164,5 +172,5 @@ Header            | Description
 **X-Request-ID**  | The ID of the request to validate via [Request Status API](#get-request-status).
 
 <aside class="notice">
-This is a bulk API call. Bulk API calls return one record per line.
+The above code loads one JSON per line and prints it out:
 </aside>

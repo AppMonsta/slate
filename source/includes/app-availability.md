@@ -1,9 +1,9 @@
-# **App IDs for all apps**
+# **App availability**
 
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/ids"
+curl --compress -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/availability.json"
 ```
 
 ```ruby
@@ -18,7 +18,7 @@ username = "{API_KEY}"  # Replace {API_KEY} with your API own key.
 password = "X"          # Password can be anything.
 
 # Request URL
-uri = URI("https://api.appmonsta.com/v1/stores/#{store}/ids")
+uri = URI("https://api.appmonsta.com/v1/stores/#{store}/availability.json")
 
 # Ruby Main Code Sample
 Net::HTTP.start(uri.host, uri.port,
@@ -28,10 +28,11 @@ Net::HTTP.start(uri.host, uri.port,
 
   http.request request do |response|
       response.read_body do |chunk|
-        # Print one app ID per line
+        # Load json object and print it out
         begin
           chunk.each_line do |line|
-          print line
+          json_record = JSON.parse(line)
+          print json_record
           end
         rescue JSON::ParserError
         end
@@ -53,21 +54,23 @@ username = "{API_KEY}"  # Replace {API_KEY} with your API own key.
 password = "X"          # Password can be anything.
 
 # Request URL
-url = 'https://api.appmonsta.com/v1/stores/%s/ids' % store
+url = 'https://api.appmonsta.com/v1/stores/%s/availability.json' % store
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
 
 # Python Main Code Sample
-response = requests.get(url,
+response = requests.get(request_url,
                         auth=(username, password),
+                        params=req_params,
                         headers=headers,
                         stream=True)
 
 print response.status_code
 for line in response.iter_lines():
-  # Print one app ID per line
-  print line
+  # Load json object and print it out
+  json_record = json.loads(line)
+  print json_record
 ```
 
 ```java
@@ -81,7 +84,7 @@ username = "{API_KEY}"; // Replace {API_KEY} with your own API key.
 password = "X";         // Password can be anything.
 
 // Request URL
-requestUrl = "https://api.appmonsta.com/v1/stores/" + store + "android/ids"
+requestUrl = "https://api.appmonsta.com/v1/stores/" + store + "android/availability.json"
 
 // Java Main Code Sample
 HttpResponse response = Unirest.get(requestUrl)
@@ -109,7 +112,7 @@ $username = "{API_KEY}"; // Replace {API_KEY} with your own API key.
 $password = "X";         // Password can be anything.
 
 // Request URL
-$url = "https://api.appmonsta.com/v1/stores/$store/ids";
+$url = "https://api.appmonsta.com/v1/stores/$store/availability.json";
 
 // PHP Main Code Sample
 $ch = curl_init();
@@ -118,8 +121,9 @@ curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 500);
 curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($curl, $data) {
-    // Print one app ID per line
-    echo ($data);
+    // Load json object and print it out
+    $json_record = json_decode((string)$data, true);
+    echo json_encode($json_record);
     return strlen($data);
 });
 curl_exec($ch);
@@ -127,25 +131,18 @@ curl_close($ch);
 ?>
 ```
 
-> The above code outputs one app ID per line:
+> The above code loads one JSON per line and prints it out:
 
 ```
-air.com.escapegamesmobi.CuckooBirdRescue
-air.elisashopingdressupgames
-appinventor.ai_antonello_f_caterino.PoLet500
-appinventor.ai_nyanskyaw.Alpha_SVM
-ar.com.hermesonline.autoya
-ar3plus.siudase.baju
-bigdx.adw.slick.purple
-biz.buildapps.ahucabs
-cm.williamsofttech.gallerylockphotoandvideohideapplock
-co.vpsoft.kiribati_newspapers
+{"app_id":"com.wikia.singlewikia.dragonvale","countries":["FR","DE","JP","US"]}
+{"app_id":"com.BLI.CrossTheRoad","countries":["FR","JP","US"]}
+{"app_id":"com.singlecase.app","countries":["FR","DE","JP","US"]}
 ```
-Get a list of all the app IDs AppMonsta knows about.
+Get a list of all the countries where the app is available.
 
 ### HTTPS Request
 
-`GET https://api.appmonsta.com/v1/stores/<store>/ids`
+`GET https://api.appmonsta.com/v1/stores/<store>/availability.json`
 
 ### Request Parameters
 
@@ -155,7 +152,10 @@ Parameter         | Required | Value
 
 ### Response Fields
 
-One app ID per line.
+Parameter         | Description 
+----------------- | ---------------------
+**app_id**        | The app ID of the app.
+**countries**     | List of country codes where the app is available.
 
 ### Response Headers
 
@@ -164,5 +164,5 @@ Header            | Description
 **X-Request-ID**  | The ID of the request to validate via [Request Status API](#get-request-status).
 
 <aside class="notice">
-This is a bulk API call. Bulk API calls return one record per line.
+The above code loads one JSON per line and prints it out:
 </aside>
