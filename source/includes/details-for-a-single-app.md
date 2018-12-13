@@ -273,8 +273,8 @@ Field                    | Description
 **current_reviews**      | The number of reviews for the current version of this app, if available as a summarized number. ![itunes_only](../images/itunes_logo.jpg)
 **description**          | The text of the description of the app.
 **downloads**            | The number of downloads this app has, if available. ![android_only](../images/android_logo.jpg)
-**file_size**            | The file size of the downloadable app as a human readable string, if present.
-**file_size_bytes**      | The size of the app binary in bytes, if present.
+**file_size**            | The file size of the downloadable app as a human readable string, if present. Value is displayed as shown in each store.
+**file_size_bytes**      | The size of the app binary in bytes, if present. ![itunes_only](../images/itunes_logo.jpg)
 **genre**                | The primary category of an app, as it appears on the store side.
 **genre_id**             | The ID of the primary category of an app, as returned by the store.
 **genres**               | All categories of an app, as they are returned from the store side.
