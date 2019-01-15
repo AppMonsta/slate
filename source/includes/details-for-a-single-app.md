@@ -149,7 +149,6 @@ curl_close($ch);
 {
   "content_rating": "Everyone",
   "app_name": "Messenger – Text and Video Chat for Free",
-  "top_developer": false,
   "requires_os": "Varies with device",
   "related": {
     "related_apps": [
@@ -340,7 +339,6 @@ Field                    | Description
 **status_unix_timestamp** | The parsed unix timestamp of the `status_date` field.
 **store_url**             | App store URL.
 **support_url**           | A support url for this app, if it differs from `publisher_url`. ![itunes_only](../images/itunes_logo.jpg)
-**top_developer**         | A boolean whether this apps developer is marked as a top developer. ![android_only](../images/android_logo.jpg)
 **translated_description**| Translated app description, when in other language than expected. ![android_only](../images/android_logo.jpg)
 **version**               | The current version of the app.
 **video_urls**            | An array of urls of demo videos for this app, if present. ![android_only](../images/android_logo.jpg)

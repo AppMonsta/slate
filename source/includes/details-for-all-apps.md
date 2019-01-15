@@ -151,7 +151,6 @@ curl_close($ch);
 {
   "content_rating": "Everyone",
   "app_name": "Churchbridge Credit Union",
-  "top_developer": false,
   "requires_os": "4.4 and up",
   "related": {
     "related_apps": [
