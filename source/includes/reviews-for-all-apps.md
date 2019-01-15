@@ -183,7 +183,7 @@ Field                    | Description
 **rating**               | The star rating the user gave with this review. 1-5.
 **review_id**            | The ID assigned by the store. May be non-unique across apps.
 **review_text**          | The text of the body of the review.
-**title**                | The title/subject line of the review, as written by the user, if there is one.
+**title**                | The title/subject line of the review, as written by the user, if there is one. ![itunes_only](../images/itunes_logo.jpg)
 **user_id**              | The unique identifier for the user as assigned by the store ( deprecated for iTunes since August 2016 ). ![android_only](../images/android_logo.jpg)
 **user_name**            | The display name of the user writing the review.
 
