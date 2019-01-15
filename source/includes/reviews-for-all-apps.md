@@ -143,7 +143,6 @@ curl_close($ch);
 ```json
 {
   "rating":5,
-  "user_id":"103142985936483271758",
   "review_id":"Z3A6QU9xcFRPSDNlbTBHR0dTdy1GSkhrWFJjYnl4dThZamhKNm4zTUwtYzBkZW9Ud0owWDBLUDBlRWJZSVFNbUdnbEViNlJRclRCMzZCbXh6eENZUm9hVXc",
   "language":"en",
   "title":"Heartbleed Detector",
@@ -184,7 +183,6 @@ Field                    | Description
 **review_id**            | The ID assigned by the store. May be non-unique across apps.
 **review_text**          | The text of the body of the review.
 **title**                | The title/subject line of the review, as written by the user, if there is one. ![itunes_only](../images/itunes_logo.jpg)
-**user_id**              | The unique identifier for the user as assigned by the store ( deprecated for iTunes since August 2016 ). ![android_only](../images/android_logo.jpg)
 **user_name**            | The display name of the user writing the review.
 
 ### Response Headers
