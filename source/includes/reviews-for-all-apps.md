@@ -176,7 +176,7 @@ Parameter         | Required | Value
 Field                    | Description
 ------------------------ | -----------
 **app_id**               | The app ID of the app this review is for.
-**app_version**          | The app version this review is for, if present.
+**app_version**          | The app version this review is for, if present. ![itunes_only](../images/itunes_logo.jpg)
 **date**                 | Review date as a string in ISO format: `YYYY-MM-DD`.
 **date_str**             | The original review date format, a string. ![android_only](../images/android_logo.jpg)
 **language**             | The language the review was written in. ![android_only](../images/android_logo.jpg)
