@@ -326,6 +326,7 @@ Field                    | Description
 **publisher_address**     | Physical address of the publisher if listed in the app store. ![android_only](../images/android_logo.jpg)
 **publisher_email**       | The email address of the publisher of this app, if present. ![android_only](../images/android_logo.jpg)
 **publisher_id**          | The ID of the publisher of this app as assigned by the store.
+**publisher_id_num**      | The numeric ID of the publisher of this app as assigned by the store. ![android_only](../images/android_logo.jpg)
 **publisher_name**        | The display name of the publisher of this app.
 **publisher_url**         | The website of the publisher of this app.
 **related**               | A dictionary of related apps as presented by the source system. The keys are an identifier for the section of related apps, such as `also_installed`. The values are lists of app IDs.
