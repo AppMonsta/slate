@@ -4,7 +4,7 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
+curl --compressed -u "{API_KEY}:X" \
      "https://api.appmonsta.com/v1/stores/android/rankings.json?date={{ date }}&country=US"
 ```
 
@@ -227,7 +227,7 @@ This is a bulk API call. Bulk API calls return one record per line.
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
+curl --compressed -u "{API_KEY}:X" \
      "https://api.appmonsta.com/v1/stores/android/rankings/aggregate.json?date={{ date }}&country=US"
 ```
 
@@ -423,7 +423,7 @@ This is a bulk API call. Bulk API calls return one record per line.
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
+curl --compressed -u "{API_KEY}:X" \
      "https://api.appmonsta.com/v1/stores/<store>/rankings/genres.json?date={{ date }}"
 ```
 
@@ -603,7 +603,7 @@ This is a bulk API call. Bulk API calls return one record per line.
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
+curl --compressed -u "{API_KEY}:X" \
      "https://api.appmonsta.com/v1/stores/<store>/rankings/types.json?date={{ date }}"
 ```
 
