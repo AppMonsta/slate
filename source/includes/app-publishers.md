@@ -3,7 +3,7 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/publishers.json"
+curl --compress -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/publishers.json?date={{ date }}"
 ```
 
 ```ruby
@@ -146,7 +146,7 @@ Get a list of all publishers and their information that AppMonsta knows about.
 
 ### HTTPS Request
 
-`GET https://api.appmonsta.com/v1/stores/<store>/publishers.json`
+`GET https://api.appmonsta.com/v1/stores/<store>/publishers.json?date=<date>`
 
 ### Request Parameters
 
