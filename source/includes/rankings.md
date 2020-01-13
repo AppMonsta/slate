@@ -211,7 +211,7 @@ This is a bulk API call. Bulk API calls return one record per line.
 
 ```shell
 curl --compress -u "{API_KEY}:X" \
-     "https://api.appmonsta.com/v1/stores/android/aggregate.json?date={{ date }}&country=US"
+     "https://api.appmonsta.com/v1/stores/android/rankings/aggregate.json?date={{ date }}&country=US"
 ```
 
 ```ruby
@@ -228,7 +228,7 @@ username = "{API_KEY}"  # Replace {API_KEY} with your API own key.
 password = "X"          # Password can be anything.
 
 # Request URL
-uri = URI("https://api.appmonsta.com/v1/stores/android/aggregate.json?date=#{date}&country=#{country_code}")
+uri = URI("https://api.appmonsta.com/v1/stores/android/rankings/aggregate.json?date=#{date}&country=#{country_code}")
 
 # Ruby Main Code Sample
 Net::HTTP.start(uri.host, uri.port,
