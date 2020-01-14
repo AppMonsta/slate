@@ -185,7 +185,7 @@ curl_close($ch);
   "version": "Varies with device",
   "publisher_url": "https://www.facebook.com/games/fbmessenger_android/",
   "contains_ads": false,
-  "whats_new": "In efforts to make it easier to connect with businesses on Messenger, we are focusing on more contextual ways to connect with businesses...",
+  "whats_new": "In efforts to make it easier to connect with businesses on Messenger, we are focusing on more contextual...",
   "publisher_id": "Facebook",
   "price": "Free",
   "screenshot_urls": [
