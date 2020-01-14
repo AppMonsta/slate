@@ -138,7 +138,23 @@ curl_close($ch);
 {"app_id":"com.BLI.CrossTheRoad","countries":["FR","JP","US"]}
 {"app_id":"com.singlecase.app","countries":["FR","DE","JP","US"]}
 ```
-Get a list of all the countries where the app is available.
+Get a list of all the countries where the app is available. Currently the following countries are supported:
+
+`AO`, `AI`, `AL`, `AE`, `AR`, `AM`, `AG`, `AU`, `AT`, `AZ`, `BE`,
+`BJ`, `BF`, `BG`, `BH`, `BS`, `BY`, `BZ`, `BM`, `BO`, `BR`, `BB`,
+`BN`, `BT`, `BW`, `CA`, `CH`, `CL`, `CN`, `CG`, `CO`, `CV`, `CR`,
+`KY`, `CY`, `CZ`, `DE`, `DM`, `DK`, `DO`, `DZ`, `EC`, `EG`, `ES`,
+`EE`, `FI`, `FJ`, `FR`, `FM`, `GB`, `GH`, `GM`, `GW`, `GR`, `GD`,
+`GT`, `GY`, `HK`, `HN`, `HR`, `HU`, `ID`, `IN`, `IE`, `IS`, `IL`,
+`IT`, `JM`, `JO`, `JP`, `KZ`, `KE`, `KG`, `KH`, `KN`, `KR`, `KW`,
+`LA`, `LB`, `LR`, `LC`, `LK`, `LT`, `LU`, `LV`, `MO`, `MD`, `MG`,
+`MX`, `MK`, `ML`, `MT`, `MN`, `MZ`, `MR`, `MS`, `MU`, `MW`, `MY`,
+`NA`, `NE`, `NG`, `NI`, `NL`, `NO`, `NP`, `NZ`, `OM`, `PK`, `PA`,
+`PE`, `PH`, `PW`, `PG`, `PL`, `PT`, `PY`, `QA`, `RO`, `RU`, `SA`,
+`SN`, `SG`, `SB`, `SL`, `SV`, `ST`, `SR`, `SK`, `SI`, `SE`, `SZ`,
+`SC`, `TC`, `TD`, `TH`, `TJ`, `TM`, `TT`, `TN`, `TR`, `TW`, `TZ`,
+`UG`, `UA`, `UY`, `US`, `UZ`, `VC`, `VE`, `VG`, `VN`, `YE`, `ZA`,
+`ZW`
 
 ### HTTPS Request
 
