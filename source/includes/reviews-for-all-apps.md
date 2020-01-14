@@ -178,9 +178,10 @@ Field                    | Description
 **app_version**          | The app version this review is for, if present. ![itunes_only](../images/itunes_logo.jpg)
 **date**                 | Review date as a string in ISO format: `YYYY-MM-DD`.
 **date_str**             | The original review date format, a string. ![android_only](../images/android_logo.jpg)
+**id**                   | The globally unique reviews ID. For iOS apps, we use IDs provided by App Store and for Android apps we generate them on our end by calculating a `md5_hash` on the following fields: `app_id`, `review_text`, `user_name`, `rating`, `title`, `language`.
 **language**             | The language the review was written in. ![android_only](../images/android_logo.jpg)
 **rating**               | The star rating the user gave with this review. 1-5.
-**review_id**            | The ID assigned by the store. May be non-unique across apps.
+**review_id**            | The reviews ID assigned by the store. May be non-unique across apps.
 **review_text**          | The text of the body of the review.
 **title**                | The title/subject line of the review, as written by the user, if there is one. ![itunes_only](../images/itunes_logo.jpg)
 **user_name**            | The display name of the user writing the review.
