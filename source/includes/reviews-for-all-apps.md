@@ -59,12 +59,12 @@ username = "{API_KEY}"  # Replace {API_KEY} with your own API key.
 password = "X"          # Password can be anything.
 
 # Request URL
-url = "https://api.appmonsta.com/v1/stores/%s/reviews.json" % store
+request_url = "https://api.appmonsta.com/v1/stores/%s/reviews.json" % store
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
 
-response = requests.get(url,
+response = requests.get(request_url,
                         auth=(username, password),
                         headers=headers,
                         params=req_params,
