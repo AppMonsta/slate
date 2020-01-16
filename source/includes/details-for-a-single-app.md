@@ -325,7 +325,7 @@ Field                    | Description
 **price**                 | The price of the app, as displayed on the store side.
 **price_currency**        | Price currency, according to ISO 4271 standard.
 **price_value**           | Price value, expressed as digits only.
-**privacy_url**           | Privacy policy url, shown on store for the publisher of this app, if present. ![android_only](../images/android_logo.jpg)
+**privacy_url**           | Privacy policy URL provided by the publisher, if present. ![android_only](../images/android_logo.jpg)
 **publisher_address**     | Physical address of the publisher if listed in the app store. ![android_only](../images/android_logo.jpg)
 **publisher_email**       | The email address of the publisher of this app, if present. ![android_only](../images/android_logo.jpg)
 **publisher_id**          | The ID of the publisher of this app as assigned by the store.
