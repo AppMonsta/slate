@@ -94,7 +94,7 @@ HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth(username, password)
-  .queryString("date", $date),
+  .queryString("date", date),
   .asString();
 
 int status = response.getStatus();
