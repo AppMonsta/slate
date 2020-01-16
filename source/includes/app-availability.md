@@ -138,7 +138,7 @@ curl_close($ch);
 {"app_id":"com.BLI.CrossTheRoad","countries":["FR","JP","US"]}
 {"app_id":"com.singlecase.app","countries":["FR","DE","JP","US"]}
 ```
-Get a list of all the countries where the app is available. Currently the following countries are supported:
+Get a list of all the countries where the app is available. The following countries are supported:
 
 `AO`, `AI`, `AL`, `AE`, `AR`, `AM`, `AG`, `AU`, `AT`, `AZ`, `BE`,
 `BJ`, `BF`, `BG`, `BH`, `BS`, `BY`, `BZ`, `BM`, `BO`, `BR`, `BB`,

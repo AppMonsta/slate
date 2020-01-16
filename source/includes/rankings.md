@@ -165,7 +165,7 @@ curl_close($ch);
 ```
 
 Request all rankings by date and by country. This call returns ranking records with all the available meta-data from the store's ranking list page.
-Currently the following countries are supported:
+The following countries are supported:
 
 `AO`, `AI`, `AL`, `AE`, `AR`, `AM`, `AG`, `AU`, `AT`, `AZ`, `BE`,
 `BJ`, `BF`, `BG`, `BH`, `BS`, `BY`, `BZ`, `BM`, `BO`, `BR`, `BB`,
