@@ -3,7 +3,7 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
+curl --compressed -u "{API_KEY}:X" \
      "https://api.appmonsta.com/v1/stores/<store>/rankings/types.json?date={{ date }}"
 ```
 

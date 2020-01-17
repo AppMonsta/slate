@@ -3,7 +3,7 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/publishers.json"
+curl --compressed -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/publishers.json?date={{ date }}"
 ```
 
 ```ruby
@@ -57,13 +57,13 @@ username = "{API_KEY}"  # Replace {API_KEY} with your API own key.
 password = "X"          # Password can be anything.
 
 # Request URL
-url = 'https://api.appmonsta.com/v1/stores/%s/publishers.json' % store
+request_url = 'https://api.appmonsta.com/v1/stores/%s/publishers.json' % store
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
 
 # Python Main Code Sample
-response = requests.get(url,
+response = requests.get(request_url,
                         auth=(username, password),
                         params=req_params,
                         headers=headers,
@@ -94,7 +94,7 @@ HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth(username, password)
-  .queryString("date", $date),
+  .queryString("date", date),
   .asString();
 
 int status = response.getStatus();
@@ -146,7 +146,7 @@ Get a list of all publishers and their information that AppMonsta knows about.
 
 ### HTTPS Request
 
-`GET https://api.appmonsta.com/v1/stores/<store>/publishers.json`
+`GET https://api.appmonsta.com/v1/stores/<store>/publishers.json?date=<date>`
 
 ### Request Parameters
 

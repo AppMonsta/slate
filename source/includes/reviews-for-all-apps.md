@@ -3,7 +3,7 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
+curl --compressed -u "{API_KEY}:X" \
      "https://api.appmonsta.com/v1/stores/android/reviews.json?language=en"
 ```
 
@@ -59,12 +59,12 @@ username = "{API_KEY}"  # Replace {API_KEY} with your own API key.
 password = "X"          # Password can be anything.
 
 # Request URL
-url = "https://api.appmonsta.com/v1/stores/%s/reviews.json" % store
+request_url = "https://api.appmonsta.com/v1/stores/%s/reviews.json" % store
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
 
-response = requests.get(url,
+response = requests.get(request_url,
                         auth=(username, password),
                         headers=headers,
                         params=req_params,
@@ -167,7 +167,7 @@ Parameter         | Required | Value
 ----------------- | -------- | -----------
 **store**         | Yes      | `android` or `itunes`.
 **language**      | Yes      | Specify language with two letter language code (`EN`, `FR`, `IT`, etc.).
-**start_date**    | Yes      | Only returns reviews we have collected after this date. This can sometimes include few days older records than `start_date`, since it can take some time for us to scrape the reviews. It can also include even older reviews if they have changed in any way since the first time we have collected them.
+**start_date**    | No       | Only returns reviews we have collected after this date. This can sometimes include few days older records than `start_date`, since it can take some time for us to scrape the reviews. It can also include even older reviews if they have changed in any way since the first time we have collected them.
 **end_date**      | No       | Used with `start_date` parameter to get reviews we have collected within a particular time frame. If not specified we default this parameter to current date.
 
 ### Response Fields
@@ -178,9 +178,10 @@ Field                    | Description
 **app_version**          | The app version this review is for, if present. ![itunes_only](../images/itunes_logo.jpg)
 **date**                 | Review date as a string in ISO format: `YYYY-MM-DD`.
 **date_str**             | The original review date format, a string. ![android_only](../images/android_logo.jpg)
+**id**                   | The globally unique reviews ID. For iTunes apps, we use ID provided by App Store. For Android apps we generate them by calculating MD5 hash from: `app_id`, `review_text`, `user_name`, `rating`, `title`, `language`.
 **language**             | The language the review was written in. ![android_only](../images/android_logo.jpg)
 **rating**               | The star rating the user gave with this review. 1-5.
-**review_id**            | The ID assigned by the store. May be non-unique across apps.
+**review_id**            | The reviews ID assigned by the store. May be non-unique across apps.
 **review_text**          | The text of the body of the review.
 **title**                | The title/subject line of the review, as written by the user, if there is one. ![itunes_only](../images/itunes_logo.jpg)
 **user_name**            | The display name of the user writing the review.

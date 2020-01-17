@@ -3,7 +3,7 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/ids"
+curl --compressed -u "{API_KEY}:X" "https://api.appmonsta.com/v1/stores/android/ids"
 ```
 
 ```ruby
@@ -53,13 +53,13 @@ username = "{API_KEY}"  # Replace {API_KEY} with your API own key.
 password = "X"          # Password can be anything.
 
 # Request URL
-url = 'https://api.appmonsta.com/v1/stores/%s/ids' % store
+request_url = 'https://api.appmonsta.com/v1/stores/%s/ids' % store
 
 # This header turns on compression to reduce the bandwidth usage and transfer time.
 headers = {'Accept-Encoding': 'deflate, gzip'}
 
 # Python Main Code Sample
-response = requests.get(url,
+response = requests.get(request_url,
                         auth=(username, password),
                         headers=headers,
                         stream=True)

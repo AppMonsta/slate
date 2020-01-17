@@ -4,7 +4,7 @@
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
+curl --compressed -u "{API_KEY}:X" \
      "https://api.appmonsta.com/v1/stores/android/rankings.json?date={{ date }}&country=US"
 ```
 
@@ -102,8 +102,8 @@ HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth(username, password)  
-  .queryString("country", $countryCode),
-  .queryString("date", $date),
+  .queryString("country", countryCode),
+  .queryString("date", date),
   .asString();
 
 int status = response.getStatus();
@@ -165,6 +165,23 @@ curl_close($ch);
 ```
 
 Request all rankings by date and by country. This call returns ranking records with all the available meta-data from the store's ranking list page.
+The following countries are supported:
+
+`AO`, `AI`, `AL`, `AE`, `AR`, `AM`, `AG`, `AU`, `AT`, `AZ`, `BE`,
+`BJ`, `BF`, `BG`, `BH`, `BS`, `BY`, `BZ`, `BM`, `BO`, `BR`, `BB`,
+`BN`, `BT`, `BW`, `CA`, `CH`, `CL`, `CN`, `CG`, `CO`, `CV`, `CR`,
+`KY`, `CY`, `CZ`, `DE`, `DM`, `DK`, `DO`, `DZ`, `EC`, `EG`, `ES`,
+`EE`, `FI`, `FJ`, `FR`, `FM`, `GB`, `GH`, `GM`, `GW`, `GR`, `GD`,
+`GT`, `GY`, `HK`, `HN`, `HR`, `HU`, `ID`, `IN`, `IE`, `IS`, `IL`,
+`IT`, `JM`, `JO`, `JP`, `KZ`, `KE`, `KG`, `KH`, `KN`, `KR`, `KW`,
+`LA`, `LB`, `LR`, `LC`, `LK`, `LT`, `LU`, `LV`, `MO`, `MD`, `MG`,
+`MX`, `MK`, `ML`, `MT`, `MN`, `MZ`, `MR`, `MS`, `MU`, `MW`, `MY`,
+`NA`, `NE`, `NG`, `NI`, `NL`, `NO`, `NP`, `NZ`, `OM`, `PK`, `PA`,
+`PE`, `PH`, `PW`, `PG`, `PL`, `PT`, `PY`, `QA`, `RO`, `RU`, `SA`,
+`SN`, `SG`, `SB`, `SL`, `SV`, `ST`, `SR`, `SK`, `SI`, `SE`, `SZ`,
+`SC`, `TC`, `TD`, `TH`, `TJ`, `TM`, `TT`, `TN`, `TR`, `TW`, `TZ`,
+`UG`, `UA`, `UY`, `US`, `UZ`, `VC`, `VE`, `VG`, `VN`, `YE`, `ZA`,
+`ZW`
 
 ### HTTPS Request
 
@@ -210,8 +227,8 @@ This is a bulk API call. Bulk API calls return one record per line.
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
-     "https://api.appmonsta.com/v1/stores/android/aggregate.json?date={{ date }}&country=US"
+curl --compressed -u "{API_KEY}:X" \
+     "https://api.appmonsta.com/v1/stores/android/rankings/aggregate.json?date={{ date }}&country=US"
 ```
 
 ```ruby
@@ -228,7 +245,7 @@ username = "{API_KEY}"  # Replace {API_KEY} with your API own key.
 password = "X"          # Password can be anything.
 
 # Request URL
-uri = URI("https://api.appmonsta.com/v1/stores/android/aggregate.json?date=#{date}&country=#{country_code}")
+uri = URI("https://api.appmonsta.com/v1/stores/android/rankings/aggregate.json?date=#{date}&country=#{country_code}")
 
 # Ruby Main Code Sample
 Net::HTTP.start(uri.host, uri.port,
@@ -308,8 +325,8 @@ HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth(username, password)
-  .queryString("country", $countryCode),
-  .queryString("date", $date),
+  .queryString("country", countryCode),
+  .queryString("date", date),
   .asString();
 
 int status = response.getStatus();
@@ -406,7 +423,7 @@ This is a bulk API call. Bulk API calls return one record per line.
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
+curl --compressed -u "{API_KEY}:X" \
      "https://api.appmonsta.com/v1/stores/<store>/rankings/genres.json?date={{ date }}"
 ```
 
@@ -500,8 +517,8 @@ HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth(username, password)
-  .queryString("country", $countryCode),
-  .queryString("date", $date),
+  .queryString("country", countryCode),
+  .queryString("date", date),
   .asString();
 
 int status = response.getStatus();
@@ -586,7 +603,7 @@ This is a bulk API call. Bulk API calls return one record per line.
 > Don't forget to replace `{API_KEY}` with your actual API key.
 
 ```shell
-curl --compress -u "{API_KEY}:X" \
+curl --compressed -u "{API_KEY}:X" \
      "https://api.appmonsta.com/v1/stores/<store>/rankings/types.json?date={{ date }}"
 ```
 
@@ -680,8 +697,8 @@ HttpResponse response = Unirest.get(requestUrl)
   // This header turns on compression to reduce the bandwidth usage and transfer time.
   .header("Accept-Encoding", "deflate, gzip")
   .basicAuth(username, password)
-  .queryString("country", $countryCode),
-  .queryString("date", $date),
+  .queryString("country", countryCode),
+  .queryString("date", date),
   .asString();
 
 int status = response.getStatus();
